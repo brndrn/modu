@@ -1,0 +1,2327 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MODU — SWITZERLAND | Wirkung ohne Umwege</title>
+  <meta name="description" content="Funktionale Beutel statt träger Kapseln — entwickelt in der Schweiz. Reine Pflanzenextrakte und Vitamine in unter 5 Minuten im Körper. 0% Nikotin. 0 Zucker.">
+  
+  <!-- Typography: Instrument Sans (Haas Unica Swiss Neo-Grotesque lineage) & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Instrument Sans"', '-apple-system', 'BlinkMacSystemFont', '"Neue Haas Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            modu: {
+              vanilla: '#FAF8F2',
+              vanillaMuted: '#F4EFE6',
+              oatmeal: '#EDE6DA',
+              charcoal: '#141414',
+              muted: '#767268',
+              line: '#E6E0D4',
+              lineDark: '#232A26',
+              dark: '#0D1310',
+              darkSurface: '#151C18',
+              emerald: '#00A86B',
+              amber: '#FFB800',
+              cobalt: '#0052FF',
+            }
+          },
+          letterSpacing: {
+            tightest: '-0.04em',
+            tighter: '-0.025em',
+            luxury: '0.22em',
+            widest2: '0.18em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Swiss International Typographic Style & Motion Architecture */
+    body {
+      background-color: #FAF8F2;
+      color: #141414;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .wordmark-spacing {
+      letter-spacing: 0.22em;
+    }
+    .switzerland-spacing {
+      letter-spacing: 0.28em;
+    }
+
+    /* Kinetic Colored Horizon Lines from Brand Identity */
+    .horizon-emerald {
+      height: 2px;
+      background-color: #00A86B;
+    }
+    .horizon-amber {
+      height: 2px;
+      background-color: #FFB800;
+    }
+
+    .border-hairline {
+      border-color: #E6E0D4;
+    }
+    .border-dark-hairline {
+      border-color: #232A26;
+    }
+
+    /* Top-Tier Motion Physics (from transitions-dev) */
+    :root {
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .transition-smooth {
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    /* 360° Real WebGL 3D Stage */
+    .webgl-turntable-container {
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+    }
+
+    #webgl-turntable-canvas {
+      width: 100% !important;
+      height: 100% !important;
+      outline: none;
+      touch-action: none;
+    }
+
+    /* Interactive 3D Exploded Pouch Anatomy */
+    .pouch-layer {
+      transition: transform 0.5s var(--ease-spring), opacity 0.35s ease, filter 0.35s ease;
+      will-change: transform;
+    }
+    .pouch-layer.layer-focused {
+      filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.18)) !important;
+      z-index: 60 !important;
+    }
+    .pouch-layer.layer-dimmed {
+      opacity: 0.3 !important;
+      filter: blur(1.5px) !important;
+    }
+
+    /* Layer Decomposition Animation */
+    .decomp-layer-highlight {
+      transition: all 0.35s var(--ease-spring);
+    }
+    .decomp-layer-highlight:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px -4px rgba(0,0,0,0.06);
+    }
+  </style>
+
+  <!-- Three.js 3D WebGL Library (Local with CDN fallback) -->
+  <script src="assets/js/three.min.js"></script>
+  <script>
+    if (typeof THREE === 'undefined') {
+      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>');
+    }
+  </script>
+</head>
+
+<body class="selection:bg-modu-charcoal selection:text-white">
+
+  <!-- TOP TICKER ANNOUNCEMENT -->
+  <div class="bg-modu-charcoal text-[#A8A49C] text-[11px] font-mono tracking-widest2 py-2.5 px-4 text-center border-b border-neutral-800">
+    <span id="ticker-text">🇨🇭 ENTWICKELT IN DER SCHWEIZ // 0% NIKOTIN & TABAK // ERHÄLTLICH IN SCHWEIZER APOTHEKEN & STORES</span>
+  </div>
+
+  <!-- STICKY AMBIENT NAVIGATION -->
+  <header class="sticky top-0 z-50 bg-[#FAF8F2]/90 backdrop-blur-md border-b border-hairline transition-all">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Block -->
+      <a href="#hero" class="flex flex-col items-start group">
+        <span class="font-sans font-semibold text-xl wordmark-spacing text-modu-charcoal leading-none">M O D U</span>
+        <span class="text-[9px] font-medium switzerland-spacing text-modu-muted uppercase mt-1 tracking-luxury">SWITZERLAND</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-10 text-[12px] font-mono uppercase tracking-widest text-[#5C5953]">
+        <a href="#remedies" class="hover:text-modu-charcoal transition-colors" data-lang-de="FORMELN" data-lang-en="REMEDIES">FORMELN</a>
+        <a href="#science" class="hover:text-modu-charcoal transition-colors" data-lang-de="WIRKUNG" data-lang-en="THE SCIENCE">WIRKUNG</a>
+        <a href="#anatomy" class="hover:text-modu-charcoal transition-colors" data-lang-de="ANATOMIE" data-lang-en="ANATOMY">ANATOMIE</a>
+        <a href="#ritual" class="hover:text-modu-charcoal transition-colors" data-lang-de="ANWENDUNG" data-lang-en="THE RITUAL">ANWENDUNG</a>
+        <a href="#standards" class="hover:text-modu-charcoal transition-colors" data-lang-de="SCHWEIZER QUALITÄT" data-lang-en="SWISS QUALITY">SCHWEIZER QUALITÄT</a>
+        <a href="#locator" class="hover:text-modu-charcoal transition-colors" data-lang-de="STANDORTE" data-lang-en="STORE LOCATOR">STANDORTE</a>
+        <a href="#faq" class="hover:text-modu-charcoal transition-colors" data-lang-de="FAQ" data-lang-en="FAQ">FAQ</a>
+      </nav>
+
+      <!-- Right Controls: Language Switcher & Finder CTA -->
+      <div class="flex items-center gap-4">
+        <!-- Language Toggle -->
+        <div class="flex items-center bg-[#EDE7DB] rounded-full p-1 border border-hairline text-xs font-mono">
+          <button id="lang-de" onclick="setLanguage('de')" class="px-2.5 py-1 rounded-full font-semibold transition-all bg-white text-modu-charcoal shadow-sm">DE</button>
+          <button id="lang-en" onclick="setLanguage('en')" class="px-2.5 py-1 rounded-full text-modu-muted hover:text-black transition-all">EN</button>
+        </div>
+
+        <a href="#locator" class="hidden sm:inline-flex items-center gap-2 border border-modu-charcoal text-modu-charcoal text-[11px] font-mono tracking-wider uppercase px-4 py-2 rounded-full hover:bg-modu-charcoal hover:text-white transition-all">
+          <span class="w-1.5 h-1.5 rounded-full bg-modu-emerald"></span>
+          <span data-lang-de="IN DEINER NÄHE FINDEN" data-lang-en="FIND NEAR YOU">IN DEINER NÄHE FINDEN</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- SECTION 1: THE AMBIENT HERO FOLD (THE HORIZON HOOK) -->
+  <section id="hero" class="relative pt-12 md:pt-16 pb-20 md:pb-28 border-b border-hairline overflow-hidden bg-[#FAF8F2]">
+    
+    <!-- Colored Horizon Line framing the Hero -->
+    <div id="hero-horizon-line" class="horizon-emerald w-full mb-12 transition-colors duration-300"></div>
+
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left Column: Copy & Value Proposition -->
+        <div class="lg:col-span-6 flex flex-col items-start text-left">
+          
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-hairline text-[11px] font-mono uppercase tracking-widest text-[#5C5953] mb-8">
+            <span class="w-2 h-2 rounded-full bg-modu-emerald"></span>
+            <span data-lang-de="DIREKTE AUFNAHME IM MUND // 0% NIKOTIN" data-lang-en="DIRECT ORAL ABSORPTION // 0% NICOTINE">DIREKTE AUFNAHME IM MUND // 0% NIKOTIN</span>
+          </div>
+
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tightest leading-[1.04] mb-8 text-modu-charcoal" data-lang-de="WIRKUNG OHNE UMWEGE." data-lang-en="PHYSIOLOGY ON DEMAND.">
+            WIRKUNG OHNE UMWEGE.
+          </h1>
+
+          <p class="text-lg sm:text-xl text-[#4A4742] max-w-xl font-normal leading-relaxed mb-10" data-lang-de="Funktionale Beutel statt träger Kapseln — entwickelt in der Schweiz. Reine Pflanzenextrakte und Vitamine gelangen in unter 5 Minuten direkt über deine Mundschleimhaut in deinen Körper. Ohne Wasser. 0% Nikotin. 0 Zucker." data-lang-en="Next-generation oral pouches engineered in Switzerland. Pure botanical extracts and vitamins absorbed directly under your lip in under 5 minutes. No water needed. Zero sugar. Zero digestive delay.">
+            Funktionale Beutel statt träger Kapseln — entwickelt in der Schweiz. Reine Pflanzenextrakte und Vitamine gelangen in unter 5 Minuten direkt über deine Mundschleimhaut in deinen Körper. Ohne Wasser. 0% Nikotin. 0 Zucker.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+            <a href="#remedies" class="w-full sm:w-auto text-center px-8 py-4 bg-modu-charcoal text-white text-xs font-mono uppercase tracking-widest rounded-full hover:bg-neutral-800 transition-all">
+              <span data-lang-de="FORMELN ENTDECKEN" data-lang-en="EXPLORE THE REMEDIES">FORMELN ENTDECKEN</span>
+            </a>
+            <a href="#locator" class="w-full sm:w-auto text-center px-8 py-4 bg-transparent border border-modu-charcoal text-modu-charcoal text-xs font-mono uppercase tracking-widest rounded-full hover:bg-[#EDE7DB] transition-all">
+              <span data-lang-de="📍 APOTHEKEN IN DEINER NÄHE" data-lang-en="📍 FIND IN PHARMACIES & STORES">📍 APOTHEKEN IN DEINER NÄHE</span>
+            </a>
+          </div>
+
+          <!-- Trust Data Band from Approved Copy Deck -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-14 pt-8 border-t border-hairline w-full text-[11px] font-mono text-modu-muted">
+            <div>
+              <span class="block text-modu-charcoal font-medium text-xs mb-0.5">01 / &lt; 5 MIN</span>
+              <span data-lang-de="Sofort spürbar ab 5 Minuten" data-lang-en="Fast Action in 5 Minutes">Sofort spürbar ab 5 Minuten</span>
+            </div>
+            <div>
+              <span class="block text-modu-charcoal font-medium text-xs mb-0.5">02 / 0% NIKOTIN</span>
+              <span data-lang-de="100% Tabak- & Nikotinfrei" data-lang-en="100% Tobacco- & Nicotine-Free">100% Tabak- &amp; Nikotinfrei</span>
+            </div>
+            <div>
+              <span class="block text-modu-charcoal font-medium text-xs mb-0.5">03 / SWISS LAB</span>
+              <span data-lang-de="Geprüfte Schweizer Qualität" data-lang-en="Certified Swiss Quality Standards">Geprüfte Schweizer Qualität</span>
+            </div>
+            <div>
+              <span class="block text-modu-charcoal font-medium text-xs mb-0.5">04 / 100% REIN</span>
+              <span data-lang-de="100% unabhängig laborgeprüft" data-lang-en="100% Independently Lab Tested">100% unabhängig laborgeprüft</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Alpine Atmosphere & Product Canister Showcase -->
+        <div class="lg:col-span-6 relative">
+          
+          <div class="relative w-full rounded-2xl overflow-hidden border border-hairline bg-white p-3 shadow-xs">
+            
+            <!-- Mountain Summit Backdrop -->
+            <div class="relative w-full h-[400px] sm:h-[480px] rounded-xl overflow-hidden bg-[#FAF8F2]">
+              <img src="assets/campaign/campaign_alpine_summit.jpg" alt="MODU Switzerland Alpine Vitality" class="w-full h-full object-cover object-center filter saturate-[0.95]">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+
+              <!-- Product Overlaid Card -->
+              <div class="absolute bottom-4 left-4 right-4 bg-[#FAF8F2]/95 backdrop-blur-md p-4 rounded-xl border border-hairline flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-14 h-14 bg-white rounded-lg border border-hairline p-1 flex items-center justify-center">
+                    <img id="hero-packshot" src="assets/packshots/packshot_front.jpg" alt="MODU Canister" class="max-h-full object-contain">
+                  </div>
+                  <div>
+                    <span class="text-xs font-semibold text-modu-charcoal block">MODU SWITZERLAND</span>
+                    <span class="text-[10px] font-mono text-modu-muted">20 BEUTEL // CHF 14.90</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <div class="flex items-center gap-1 bg-white p-1 rounded-lg border border-hairline text-[10px] font-mono">
+                    <button onclick="setHeroAngle('front')" id="angle-front" class="px-2.5 py-1 rounded bg-modu-charcoal text-white font-medium">FRONT</button>
+                    <button onclick="setHeroAngle('side')" id="angle-side" class="px-2.5 py-1 rounded text-modu-muted hover:text-black">PROFIL</button>
+                    <button onclick="setHeroAngle('open')" id="angle-open" class="px-2.5 py-1 rounded text-modu-muted hover:text-black">BEUTEL</button>
+                  </div>
+                  <a href="#remedies" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 bg-modu-charcoal text-white rounded-lg text-[10px] font-mono tracking-wider hover:bg-neutral-800 transition-all shadow-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-modu-emerald animate-pulse"></span>
+                    <span>3D DREHEN ↷</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: THE CORE PRINCIPLE ("THE FLAW OF DIGESTION") -->
+  <section id="science" class="py-24 md:py-32 bg-modu-dark text-white border-b border-dark-hairline relative">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="max-w-3xl mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-[#8E9B95] block mb-2" data-lang-de="DER SCHNELLERE WEG" data-lang-en="THE SPEED ADVANTAGE">DER SCHNELLERE WEG</span>
+        <h2 class="text-3xl sm:text-5xl font-light tracking-tightest mt-2 mb-6 leading-[1.08]" data-lang-de="Der Magen-Umweg: Warum das Schlucken von Pillen zu lange dauert." data-lang-en="The Digestive Detour: Why Swallowing Pills Takes Too Long.">
+          Der Magen-Umweg: Warum das Schlucken von Pillen zu lange dauert.
+        </h2>
+        <p class="text-[#A3B2AC] text-base sm:text-lg leading-relaxed font-normal mb-6" data-lang-de="Wenn du Kapseln, Tabletten oder Energy Drinks schluckst, müssen die Inhaltsstoffe erst durch deinen Magen und die Leber. Dabei geht ein grosser Teil der wertvollen Pflanzenstoffe verloren – und du wartest 30 bis 60 Minuten, bis überhaupt etwas passiert." data-lang-en="When you swallow a capsule, pill, or drink, the active ingredients must travel through your stomach and liver before reaching your bloodstream. Much of the active nutrition is broken down by stomach acid, and you are left waiting 30 to 60 sluggish minutes for an effect.">
+          Wenn du Kapseln, Tabletten oder Energy Drinks schluckst, müssen die Inhaltsstoffe erst durch deinen Magen und die Leber. Dabei geht ein grosser Teil der wertvollen Pflanzenstoffe verloren – und du wartest 30 bis 60 Minuten, bis überhaupt etwas passiert.
+        </p>
+        <p class="text-white text-base sm:text-lg font-medium" data-lang-de="MODU nimmt die Abkürzung: Die Wirkstoffe werden direkt über die Mundschleimhaut unter deiner Oberlippe aufgenommen. Sie gelangen in wenigen Minuten direkt in deinen Kreislauf – schnell, direkt und bei voller Wirkkraft." data-lang-en="MODU works directly through the lining of your mouth under your upper lip. Nutrients absorb straight into your circulation in minutes—fast, clean, and at full strength.">
+          MODU nimmt die Abkürzung: Die Wirkstoffe werden direkt über die Mundschleimhaut unter deiner Oberlippe aufgenommen. Sie gelangen in wenigen Minuten direkt in deinen Kreislauf – schnell, direkt und bei voller Wirkkraft.
+        </p>
+      </div>
+
+      <!-- Comparison Matrix from Copy Deck -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Traditional Way -->
+        <div class="bg-modu-darkSurface rounded-xl p-8 sm:p-10 border border-dark-hairline flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-6 mb-6 border-b border-dark-hairline">
+              <span class="text-xs font-mono uppercase tracking-widest text-neutral-500" data-lang-de="SWALLOWED PILLS & DRINKS" data-lang-en="SWALLOWED PILLS & DRINKS">PILLEN, KAPSELN & DRINKS</span>
+              <span class="px-2.5 py-1 rounded-full bg-red-950/60 border border-red-800/40 text-red-400 font-mono text-[10px] uppercase font-semibold">TRÄGE & VERLUSTREICH</span>
+            </div>
+
+            <div class="space-y-4 text-sm text-[#9FA8A4]">
+              <div class="flex justify-between py-2 border-b border-dark-hairline">
+                <span class="text-neutral-400" data-lang-de="Wirkeintritt" data-lang-en="How Fast It Works">Wirkeintritt</span>
+                <span class="text-neutral-200 font-mono">30 – 60 Minuten</span>
+              </div>
+              <div class="flex justify-between py-2 border-b border-dark-hairline">
+                <span class="text-neutral-400" data-lang-de="Nährstoff-Verlust" data-lang-en="Nutrient Loss in Stomach">Nährstoff-Verlust</span>
+                <span class="text-neutral-200 font-mono">Hoch (Magensäure)</span>
+              </div>
+              <div class="flex justify-between py-2 border-b border-dark-hairline">
+                <span class="text-neutral-400" data-lang-de="Magenbelastung" data-lang-en="Stomach Comfort">Magenbelastung</span>
+                <span class="text-neutral-200 font-mono">Kann Magen belasten / Sodbrennen</span>
+              </div>
+              <div class="flex justify-between py-2 border-b border-dark-hairline">
+                <span class="text-neutral-400" data-lang-de="Zucker & Kalorien" data-lang-en="Sugar & Calories">Zucker &amp; Kalorien</span>
+                <span class="text-neutral-200 font-mono">Oft gezuckert oder flüssig</span>
+              </div>
+              <div class="flex justify-between py-2">
+                <span class="text-neutral-400" data-lang-de="Anwendung" data-lang-en="Convenience">Anwendung</span>
+                <span class="text-neutral-200 font-mono">Braucht Wasser &amp; Glas</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-dark-hairline text-[11px] font-mono text-neutral-500">
+            HERKÖMMLICHE PHARMAZIE
+          </div>
+        </div>
+
+        <!-- MODU Standard -->
+        <div class="bg-gradient-to-b from-[#13221C] to-modu-darkSurface rounded-xl p-8 sm:p-10 border border-modu-emerald/40 flex flex-col justify-between relative">
+          <div>
+            <div class="flex items-center justify-between pb-6 mb-6 border-b border-dark-hairline">
+              <span class="text-xs font-mono uppercase tracking-widest text-modu-emerald font-semibold" data-lang-de="MODU ORAL POUCH" data-lang-en="MODU ORAL POUCH">MODU BEUTEL</span>
+              <span class="px-2.5 py-1 rounded-full bg-modu-emerald/20 border border-modu-emerald/50 text-modu-emerald font-mono text-[10px] uppercase font-semibold">&lt; 5 MINUTEN</span>
+            </div>
+
+            <div class="space-y-4 text-sm text-[#C2CDC8]">
+              <div class="flex justify-between py-2 border-b border-dark-hairline">
+                <span class="text-neutral-300" data-lang-de="Wirkeintritt" data-lang-en="How Fast It Works">Wirkeintritt</span>
+                <span class="text-modu-emerald font-mono font-semibold">Unter 5 Minuten</span>
+              </div>
+              <div class="flex justify-between py-2 border-b border-dark-hairline">
+                <span class="text-neutral-300" data-lang-de="Nährstoff-Verlust" data-lang-en="Nutrient Loss in Stomach">Nährstoff-Verlust</span>
+                <span class="text-white font-mono font-semibold">Kein Verlust (überbrückt Magen)</span>
+              </div>
+              <div class="flex justify-between py-2 border-b border-dark-hairline">
+                <span class="text-neutral-300" data-lang-de="Magenbelastung" data-lang-en="Stomach Comfort">Magenbelastung</span>
+                <span class="text-white font-mono font-semibold">Kein Magenkontakt</span>
+              </div>
+              <div class="flex justify-between py-2 border-b border-dark-hairline">
+                <span class="text-neutral-300" data-lang-de="Zucker & Kalorien" data-lang-en="Sugar & Calories">Zucker &amp; Kalorien</span>
+                <span class="text-white font-mono font-semibold">0 Zucker, 0 Kalorien</span>
+              </div>
+              <div class="flex justify-between py-2">
+                <span class="text-neutral-300" data-lang-de="Anwendung" data-lang-en="Convenience">Anwendung</span>
+                <span class="text-white font-mono font-semibold">Wasserlos für die Hosentasche</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-dark-hairline flex items-center justify-between text-[11px] font-mono text-modu-emerald">
+            <span>ENGINEERED IN SWITZERLAND</span>
+            <span>100% BIOVERFÜGBARKEIT</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- POUCH DECOMPOSITION & MOLECULAR ANATOMY (AUTHENTIC PHARMACEUTICAL CROSS-SECTION) -->
+  <section id="anatomy" class="py-24 md:py-32 border-b border-hairline bg-[#FAF8F2] relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-modu-muted block mb-2" data-lang-de="PHARMAZEUTISCHE DEKOMPOSITION" data-lang-en="PHARMACEUTICAL DECOMPOSITION">PHARMAZEUTISCHE DEKOMPOSITION</span>
+          <h2 class="text-3xl sm:text-5xl font-light tracking-tightest mt-2 text-modu-charcoal" data-lang-de="Die Anatomie des Beutels: Drei Schichten Reinheit." data-lang-en="The Anatomy of the Pouch: Three Layers of Purity.">
+            Die Anatomie des Beutels: Drei Schichten Reinheit.
+          </h2>
+        </div>
+        <p class="max-w-md text-sm text-[#5C5953] leading-relaxed" data-lang-de="Wie 380 Milligramm reinste Pflanzenkraft in drei mikroskopischen Schichten aufgebaut sind — für maximale Bioverfügbarkeit ohne Wasser und ohne Magenumweg." data-lang-en="How 380 milligrams of active botanical payload are engineered across three micro-layers — maximizing bioavailability without water or stomach delay.">
+          Wie 380 Milligramm reinste Pflanzenkraft in drei mikroskopischen Schichten aufgebaut sind — für maximale Bioverfügbarkeit ohne Wasser und ohne Magenumweg.
+        </p>
+      </div>
+
+      <!-- Decomposition Interactive Canvas & 3D Exploded Stage -->
+      <div class="bg-white rounded-2xl border border-hairline p-6 sm:p-10 overflow-hidden shadow-xs">
+        
+        <!-- Interactive Controls Bar -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 mb-8 border-b border-hairline">
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-1 rounded-full bg-[#FAF8F2] border border-hairline text-[11px] font-mono font-semibold text-modu-charcoal" id="decomp-status-badge">
+              ✦ STATUS: DEKOMPONIERT (4 SCHICHTEN)
+            </span>
+            <span class="text-[11px] font-mono text-modu-muted hidden md:inline">INTERAKTIVER 3D-QUERSCHNITT</span>
+          </div>
+
+          <!-- Explosion Scrubber & Actions -->
+          <div class="flex items-center gap-3 w-full sm:w-auto">
+            <div class="flex items-center gap-2 bg-[#FAF8F2] px-3 py-1.5 rounded-full border border-hairline text-xs font-mono w-full sm:w-auto justify-between">
+              <span class="text-[10px] text-modu-muted">KOMPAKT</span>
+              <input type="range" id="decomp-slider" min="0" max="100" value="100" step="1" oninput="setDecomposition(this.value)" class="w-24 sm:w-36 accent-modu-charcoal cursor-pointer">
+              <span class="text-[10px] text-modu-charcoal font-semibold" id="decomp-percent">100%</span>
+            </div>
+
+            <button onclick="toggleDecompExplode()" id="btn-decomp-toggle" class="px-3.5 py-1.5 rounded-full bg-modu-charcoal text-white text-[10px] font-mono font-semibold tracking-wider hover:bg-neutral-800 transition-all">
+              ZUSAMMENFÜHREN
+            </button>
+            <button onclick="toggleDecompViewMode()" id="btn-decomp-viewmode" class="px-3.5 py-1.5 rounded-full bg-[#FAF8F2] hover:bg-[#EDE8DE] text-modu-charcoal border border-hairline text-[10px] font-mono font-semibold tracking-wider transition-all">
+              MAKRO-FOTO
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          
+          <!-- Left: 3D Exploded Layer Anatomy Viewport -->
+          <div class="lg:col-span-7 flex flex-col items-center justify-center relative">
+            
+            <div id="pouch-stage-container" class="w-full h-[420px] bg-[#FAF8F2] rounded-xl border border-hairline relative overflow-hidden flex items-center justify-center select-none">
+              
+              <!-- 3D Exploded Layers Scene -->
+              <div id="pouch-3d-scene" class="relative w-full h-full flex items-center justify-center" style="perspective: 1200px; transform-style: preserve-3d;">
+                
+                <!-- SVG Connecting Technical Alignment Lines -->
+                <svg id="decomp-svg-lines" class="absolute inset-0 w-full h-full pointer-events-none z-0" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="30%" y1="18%" x2="30%" y2="82%" stroke="#C9C4B8" stroke-width="1" stroke-dasharray="3 4" opacity="0.6" />
+                  <line x1="70%" y1="18%" x2="70%" y2="82%" stroke="#C9C4B8" stroke-width="1" stroke-dasharray="3 4" opacity="0.6" />
+                </svg>
+
+                <!-- LAYER 01: Top Non-Woven Fleece Membrane -->
+                <div id="layer-01" onclick="focusLayer(1)" class="pouch-layer absolute w-64 sm:w-76 h-28 sm:h-32 rounded-2xl cursor-pointer group" style="transform: translateY(-95px) rotateX(46deg) rotateZ(-24deg); z-index: 40;">
+                  <div class="w-full h-full rounded-2xl border border-neutral-300/80 bg-white/80 backdrop-blur-xs p-3 shadow-lg flex flex-col justify-between transition-all group-hover:border-modu-charcoal group-hover:shadow-xl">
+                    <div class="flex items-center justify-between text-[9px] font-mono text-modu-muted">
+                      <span class="px-2 py-0.5 rounded bg-white/90 border border-neutral-200 font-semibold text-modu-charcoal">01 // PHARMA-VLIES</span>
+                      <span class="text-neutral-500">24 G/M²</span>
+                    </div>
+                    <!-- Micro-porous texture pattern -->
+                    <div class="w-full h-12 rounded-lg opacity-40 border border-dashed border-neutral-300 flex items-center justify-center bg-[radial-gradient(#a39e93_1px,transparent_1px)] [background-size:6px_6px]">
+                      <span class="text-[9px] font-mono tracking-widest text-neutral-500 uppercase">Aseptische Viskose-Membran</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[9px] font-mono text-neutral-400">
+                      <span>POREN: 12 µM</span>
+                      <span class="text-modu-emerald font-semibold">&lt; 15S SPEICHEL-AKTIV</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- LAYER 02: Microcrystalline Cellulose Lattice -->
+                <div id="layer-02" onclick="focusLayer(2)" class="pouch-layer absolute w-64 sm:w-76 h-28 sm:h-32 rounded-2xl cursor-pointer group" style="transform: translateY(-30px) rotateX(46deg) rotateZ(-24deg); z-index: 30;">
+                  <div class="w-full h-full rounded-2xl border border-neutral-300/70 bg-[#F7F5EE]/85 backdrop-blur-xs p-3 shadow-md flex flex-col justify-between transition-all group-hover:border-modu-charcoal group-hover:shadow-lg">
+                    <div class="flex items-center justify-between text-[9px] font-mono text-modu-muted">
+                      <span class="px-2 py-0.5 rounded bg-white/90 border border-neutral-200 font-semibold text-modu-charcoal">02 // CELLULOSE-MATRIX</span>
+                      <span class="text-neutral-500">PH-101</span>
+                    </div>
+                    <!-- Porous lattice micro-sponge representation -->
+                    <div class="w-full h-12 rounded-lg opacity-60 border border-neutral-200 flex items-center justify-center bg-[linear-gradient(45deg,#e5ded1_25%,transparent_25%),linear-gradient(-45deg,#e5ded1_25%,transparent_25%)] [background-size:12px_12px]">
+                      <span class="text-[9px] font-mono tracking-widest text-neutral-600 uppercase font-semibold">Molekularer Trägerschwamm</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[9px] font-mono text-neutral-400">
+                      <span>DEPOT-MATRIX</span>
+                      <span class="text-neutral-600 font-semibold">20–30 MIN FREISETZUNG</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- LAYER 03: Micronized Active Payload Core (Real Botanical Granules) -->
+                <div id="layer-03" onclick="focusLayer(3)" class="pouch-layer absolute w-64 sm:w-76 h-28 sm:h-32 rounded-2xl cursor-pointer group" style="transform: translateY(35px) rotateX(46deg) rotateZ(-24deg); z-index: 20;">
+                  <div id="layer-03-box" class="w-full h-full rounded-2xl border-2 border-modu-emerald/60 bg-gradient-to-br from-white via-[#F0FAF5] to-[#E3F5EC] p-3 shadow-md flex flex-col justify-between transition-all group-hover:scale-102">
+                    <div class="flex items-center justify-between text-[9px] font-mono">
+                      <span id="layer-03-badge" class="px-2 py-0.5 rounded bg-white border border-modu-emerald/40 font-semibold text-modu-emerald">03 // WIRKSTOFFKERN</span>
+                      <span id="layer-03-weight" class="text-modu-emerald font-semibold">380 MG PAYLOAD</span>
+                    </div>
+                    <!-- Botanical extract granules rendering (NO CARTOON GEMS) -->
+                    <div id="granules-container" class="w-full h-12 rounded-lg overflow-hidden relative flex items-center justify-center bg-white/70 border border-neutral-200/80">
+                      <canvas id="granules-canvas" class="w-full h-full block"></canvas>
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="flex justify-between items-center text-[9px] font-mono">
+                      <span id="layer-03-actives-text" class="text-[#3C5844] font-semibold text-[8px] sm:text-[9px]">GYMNEMA • KOFFEIN • THEANIN</span>
+                      <span class="text-modu-emerald font-semibold">100% REIN</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- LAYER 04: Bottom Non-Woven Fleece & Ultrasonic Seal -->
+                <div id="layer-04" onclick="focusLayer(4)" class="pouch-layer absolute w-64 sm:w-76 h-28 sm:h-32 rounded-2xl cursor-pointer group" style="transform: translateY(100px) rotateX(46deg) rotateZ(-24deg); z-index: 10;">
+                  <div class="w-full h-full rounded-2xl border border-neutral-300 bg-white/90 p-3 shadow-xs flex flex-col justify-between transition-all group-hover:border-modu-charcoal">
+                    <div class="flex items-center justify-between text-[9px] font-mono text-modu-muted">
+                      <span class="px-2 py-0.5 rounded bg-neutral-100 border border-neutral-200 font-semibold text-modu-charcoal">04 // BODEN-VLIES</span>
+                      <span class="text-neutral-500">ULTRASCHALL-SIEGEL</span>
+                    </div>
+                    <div class="w-full h-12 rounded-lg border border-dashed border-neutral-300 flex items-center justify-center bg-neutral-50">
+                      <span class="text-[9px] font-mono tracking-widest text-neutral-400 uppercase">Thermisches Randsiegel</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[9px] font-mono text-neutral-400">
+                      <span>BIO-ABBAUBAR</span>
+                      <span class="text-neutral-500 font-semibold">100% DICHT</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Ground Shadow for the exploded pouch -->
+                <div id="pouch-ground-shadow" class="absolute bottom-6 w-64 h-12 rounded-full pointer-events-none filter blur-xl opacity-25 bg-neutral-900 transition-all" style="transform: rotateX(46deg) rotateZ(-24deg) scale(1.15);"></div>
+
+              </div>
+
+              <!-- Static HD Macro Photo Alternative (Toggleable) -->
+              <div id="macro-photo-container" class="hidden absolute inset-0 p-6 flex items-center justify-center bg-[#FAF8F2]">
+                <img src="assets/packshots/pouch_decomposition.jpg" alt="MODU Pouch Decomposition Exploded Anatomy" class="w-full h-full object-contain filter drop-shadow-sm">
+              </div>
+
+            </div>
+
+            <!-- Decomposition Status Bar -->
+            <div class="w-full flex items-center justify-between mt-4 px-2 text-[10px] font-mono text-modu-muted">
+              <span>EXPLODIERTER 3D-QUERSCHNITT // 380 MG SLIM PORTION</span>
+              <span class="text-modu-charcoal font-semibold">KLICK AUF EINE SCHICHT ZUM FOKUSSIEREN</span>
+            </div>
+
+          </div>
+
+          <!-- Right: Detailed 3-Layer Breakdown & Scientific Mechanism -->
+          <div class="lg:col-span-5 flex flex-col gap-3.5 text-left">
+            
+            <!-- Layer 01 Card -->
+            <div id="decomp-card-1" onclick="focusLayer(1)" class="decomp-layer-highlight p-5 bg-[#FAF8F2] rounded-xl border border-hairline cursor-pointer">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-xs font-mono font-semibold text-modu-charcoal">01 / Aseptisches Pharma-Vlies</span>
+                <span class="text-[10px] font-mono text-neutral-400">24 G/M²</span>
+              </div>
+              <p class="text-xs text-[#5C5953] leading-relaxed" data-lang-de="Reines Pflanzen-Viskosevlies ohne Bleichmittel. Samtweich an Zahnfleisch und Oberlippe. Nimmt Speichel in unter 15 Sekunden auf und startet die Wirkstoffabgabe sofort." data-lang-en="Pure unbleached botanical viscose fleece. Velvety soft against gums. Wets with saliva in under 15 seconds to begin immediate nutrient transfer.">
+                Reines Pflanzen-Viskosevlies ohne Bleichmittel. Samtweich an Zahnfleisch und Oberlippe. Nimmt Speichel in unter 15 Sekunden auf und startet die Wirkstoffabgabe sofort.
+              </p>
+            </div>
+
+            <!-- Layer 02 Card -->
+            <div id="decomp-card-2" onclick="focusLayer(2)" class="decomp-layer-highlight p-5 bg-[#FAF8F2] rounded-xl border border-hairline cursor-pointer">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-xs font-mono font-semibold text-modu-charcoal">02 / Mikrokristalline Cellulose-Matrix</span>
+                <span class="text-[10px] font-mono text-neutral-400">PH-101</span>
+              </div>
+              <p class="text-xs text-[#5C5953] leading-relaxed" data-lang-de="Ein natürliches, hochporöses Zellstoffgitter wirkt wie ein molekularer Mikroschwamm. Es hält die Pflanzenextrakte trocken und sorgt für eine gleichmässige Freisetzung über 20 bis 30 Minuten." data-lang-en="A natural porous cellulose lattice functions as a molecular micro-sponge, holding active extracts dry and releasing them steadily over 20 to 30 minutes.">
+                Ein natürliches, hochporöses Zellstoffgitter wirkt wie ein molekularer Mikroschwamm. Es hält die Pflanzenextrakte trocken und sorgt für eine gleichmässige Freisetzung über 20 bis 30 Minuten.
+              </p>
+            </div>
+
+            <!-- Layer 03 Card (Dynamic per SKU) -->
+            <div id="decomp-active-layer" onclick="focusLayer(3)" class="decomp-layer-highlight p-5 bg-gradient-to-br from-white to-[#F0FAF5] rounded-xl border border-modu-emerald/40 transition-colors cursor-pointer">
+              <div class="flex items-center justify-between mb-1.5">
+                <span id="decomp-active-title" class="text-xs font-mono font-semibold text-modu-emerald">03 / Aktiver Wirkstoffkern (CRAVE)</span>
+                <span id="decomp-active-sku" class="text-[10px] font-mono text-modu-emerald font-semibold">01 // CRAVE</span>
+              </div>
+              <p id="decomp-active-desc" class="text-xs text-[#4A4742] leading-relaxed">
+                Mikronisierter Gymnema Sylvestre-Extrakt (75% Gymneminsäuren) blockiert deine Süss-Rezeptoren, während grünes Koffein, L-Theanin und Chrom den Blutzucker und Fokus stabilisieren.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: PRODUCT STORYTELLING (DUAL-HORIZON SELECTOR & CONTINUOUS 3D CANISTER ROTATION) -->
+  <section id="remedies" class="py-24 md:py-32 border-b border-hairline bg-[#FAF8F2]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-modu-muted" data-lang-de="DIE ZWEI LAUNCH-FORMELN" data-lang-en="THE LAUNCH FORMULAS">DIE ZWEI LAUNCH-FORMELN</span>
+          <h2 class="text-3xl sm:text-5xl font-light tracking-tightest mt-2 text-modu-charcoal" data-lang-de="Gezielte Wirkung. Zwei Zustände." data-lang-en="Targeted Action. Two States.">
+            Gezielte Wirkung. Zwei Zustände.
+          </h2>
+        </div>
+
+        <!-- Formula Switcher Buttons -->
+        <div class="inline-flex bg-[#EDE7DB] p-1 rounded-full border border-hairline">
+          <button id="tab-crave" onclick="switchProduct('crave')" class="px-6 py-2.5 rounded-full text-xs font-mono uppercase font-semibold transition-smooth bg-white text-modu-charcoal shadow-sm flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-modu-emerald"></span>
+            <span>01 // CRAVE</span>
+          </button>
+          <button id="tab-motion" onclick="switchProduct('motion')" class="px-6 py-2.5 rounded-full text-xs font-mono uppercase font-medium transition-smooth text-modu-muted hover:text-black flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-modu-amber"></span>
+            <span>02 // MOTION</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- PRODUCT SHOWCASE CANVAS (Interactive Dynamic Monograph + Continuous 3D Turntable) -->
+      <div class="bg-white rounded-2xl border border-hairline p-8 sm:p-14 overflow-hidden relative">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Left: High-Precision Continuous 3D WebGL Turntable Stage -->
+          <div class="lg:col-span-5 flex flex-col items-center justify-center">
+            
+            <div class="webgl-turntable-container w-full aspect-square bg-[#FAF8F2] rounded-xl p-6 border border-hairline flex flex-col items-center justify-between relative cursor-grab active:cursor-grabbing select-none" id="turntable-box">
+              
+              <!-- Top Indicators -->
+              <div class="w-full flex items-center justify-between text-[10px] font-mono text-modu-muted z-10 pointer-events-none">
+                <span id="product-badge" class="px-3 py-1 rounded-full uppercase font-semibold bg-modu-emerald/10 text-modu-emerald border border-modu-emerald/30 pointer-events-auto">01 // CRAVE</span>
+                <span id="turntable-angle-label" class="px-2.5 py-0.5 rounded bg-white border border-hairline text-modu-charcoal font-semibold shadow-xs">0° DRAUFSICHT</span>
+              </div>
+
+              <!-- Main Three.js 3D WebGL Stage -->
+              <div class="relative w-full h-64 sm:h-72 flex items-center justify-center my-auto overflow-hidden">
+                <canvas id="webgl-turntable-canvas" class="w-full h-full block cursor-grab active:cursor-grabbing"></canvas>
+                <!-- Graceful Fallback if WebGL unavailable -->
+                <div id="turntable-fallback" class="hidden absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <img id="turntable-fallback-image" src="assets/packshots/packshot_front.jpg" alt="MODU Canister" class="w-56 h-56 object-contain">
+                </div>
+              </div>
+
+              <!-- Turntable Drag Hint & Degree Tracker -->
+              <div class="w-full flex items-center justify-between text-[10px] font-mono text-modu-muted z-10">
+                <span class="flex items-center gap-1.5 pointer-events-none">
+                  <svg class="w-3.5 h-3.5 text-neutral-500 animate-spin" style="animation-duration: 6s;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                  <span class="hidden sm:inline">3D GREIFEN &amp; DREHEN // ECHTES WEBGL</span>
+                  <span class="sm:hidden">3D DREHEN</span>
+                </span>
+                <button onclick="togglePuckAutoRotate()" id="btn-autorotate" class="px-2.5 py-1 rounded bg-white hover:bg-neutral-100 border border-hairline text-modu-charcoal font-semibold flex items-center gap-1 transition-colors pointer-events-auto shadow-xs">
+                  <span id="autorotate-icon">❚❚</span>
+                  <span id="autorotate-text">PAUSE</span>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Turntable Slider Control Bar -->
+            <div class="w-full mt-4 p-3 bg-[#FAF8F2] rounded-xl border border-hairline flex flex-col gap-2">
+              <div class="flex items-center justify-between text-[10px] font-mono text-modu-muted">
+                <span>360° WEBGL ORBIT</span>
+                <span id="slider-degree" class="text-modu-charcoal font-semibold">0° / 360°</span>
+              </div>
+              <input type="range" id="turntable-slider" min="0" max="360" value="0" step="1" oninput="onPuckSliderInput(this.value)" class="w-full accent-modu-charcoal cursor-pointer">
+              <div class="flex justify-between text-[9px] font-mono text-neutral-500 pt-1">
+                <button onclick="tweenPuckToAngle(0)" class="hover:text-black hover:font-bold transition-colors">0° TOP</button>
+                <button onclick="tweenPuckToAngle(45)" class="hover:text-black hover:font-bold transition-colors">45° 3D</button>
+                <button onclick="tweenPuckToAngle(90)" class="hover:text-black hover:font-bold transition-colors">90° PROFIL</button>
+                <button onclick="tweenPuckToAngle(180)" class="hover:text-black hover:font-bold transition-colors">180° BODEN</button>
+                <button onclick="tweenPuckToAngle(360)" class="hover:text-black hover:font-bold transition-colors">360° ORBIT</button>
+              </div>
+            </div>
+
+            <div class="w-full flex items-center justify-between mt-3 px-2 text-[10px] font-mono text-modu-muted">
+              <span>FORMAT: SLIM POUCH</span>
+              <span>INHALT: 20 STÜCK</span>
+              <span>PREIS: CHF 14.90</span>
+            </div>
+
+          </div>
+
+          <!-- Right: Formula Monograph (Strict Copy Deck) -->
+          <div class="lg:col-span-7 flex flex-col items-start text-left">
+            
+            <!-- Dynamic Precision Horizon Line -->
+            <div id="horizon-line" class="horizon-emerald w-full mb-6 transition-colors duration-300"></div>
+
+            <div class="flex items-center justify-between w-full mb-2">
+              <span id="product-code" class="text-xs font-mono uppercase tracking-widest text-modu-emerald font-semibold">01 // CRAVE</span>
+              <span class="text-xs font-mono text-modu-muted">20 BEUTEL // CHF 14.90</span>
+            </div>
+
+            <h3 id="product-title" class="text-2xl sm:text-4xl font-light tracking-tight text-modu-charcoal mb-4">
+              Sättigung &amp; Süssverlangen stoppen
+            </h3>
+
+            <p id="product-description" class="text-[#4A4742] text-base leading-relaxed mb-8">
+              Heisshunger auf Süsses ist kein Mangel an Disziplin, sondern eine automatische Reaktion deiner Geschmacksknospen. 01 // CRAVE stoppt dieses Verlangen direkt im Mund.
+            </p>
+
+            <!-- Mechanism Points -->
+            <div class="w-full space-y-3 mb-8">
+              <div class="p-4 bg-[#FAF8F2] rounded-lg border border-hairline text-xs">
+                <span id="mech-1-title" class="font-semibold block text-modu-charcoal mb-1">Schaltet den Süssgeschmack ab:</span>
+                <span id="mech-1-desc" class="text-[#5C5953] leading-relaxed">Reiner Gymnema Sylvestre-Extrakt blockiert deine Süss-Rezeptoren auf der Zunge. Für 30 bis 60 Minuten schmeckt Zucker neutral bis fade – die Lust auf Süsses verfliegt sofort.</span>
+              </div>
+              <div class="p-4 bg-[#FAF8F2] rounded-lg border border-hairline text-xs">
+                <span id="mech-2-title" class="font-semibold block text-modu-charcoal mb-1">Stabile Energie:</span>
+                <span id="mech-2-desc" class="text-[#5C5953] leading-relaxed">Hochwertiges Chrom hilft, deinen Blutzuckerspiegel in Balance zu halten und verhindert das typische Nachmittagstief.</span>
+              </div>
+              <div class="p-4 bg-[#FAF8F2] rounded-lg border border-hairline text-xs">
+                <span id="mech-3-title" class="font-semibold block text-modu-charcoal mb-1">Klarer Kopf:</span>
+                <span id="mech-3-desc" class="text-[#5C5953] leading-relaxed">40 mg natürliches Koffein aus grünen Kaffeebohnen kombiniert mit beruhigendem L-Theanin schenken dir wachen Fokus ganz ohne Nervosität.</span>
+              </div>
+            </div>
+
+            <!-- Numbers Strip -->
+            <div class="w-full p-4 bg-[#FAF8F2] rounded-lg border border-hairline mb-8">
+              <span class="text-[10px] font-mono uppercase text-modu-muted block mb-2 tracking-widest">WIRKSTOFF-SPEZIFIKATION</span>
+              <div id="product-payload" class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono text-modu-charcoal">
+                <div><span class="font-semibold block text-sm text-black">40 MG</span>Koffein</div>
+                <div><span class="font-semibold block text-sm text-black">60 MG</span>Theanin</div>
+                <div><span class="font-semibold block text-sm text-black">25 MG</span>Gymnema</div>
+                <div><span class="font-semibold block text-sm text-black">0 ZUCKER</span>0 Kalorien</div>
+              </div>
+            </div>
+
+            <!-- Retail CTA -->
+            <div class="flex items-center gap-4">
+              <a href="#locator" class="px-7 py-3.5 bg-modu-charcoal text-white text-xs font-mono uppercase tracking-widest rounded-full hover:bg-neutral-800 transition-all">
+                <span data-lang-de="IN SCHWEIZER APOTHEKEN FINDEN" data-lang-en="FIND IN PHARMACIES & STORES">IN SCHWEIZER APOTHEKEN FINDEN</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: THE 3-STEP TACTILE RITUAL -->
+  <section id="ritual" class="py-24 md:py-32 border-b border-hairline bg-[#FAF8F2]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="max-w-2xl mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-modu-muted block mb-2" data-lang-de="DIE ANWENDUNG" data-lang-en="HOW TO USE">DIE ANWENDUNG</span>
+        <h2 class="text-3xl sm:text-5xl font-light tracking-tightest mt-2 mb-4 text-modu-charcoal" data-lang-de="Drei Schritte. Völlig diskret. Kein Aufwand." data-lang-en="Three Steps. Total Discretion. Zero Effort.">
+          Drei Schritte. Völlig diskret. Kein Aufwand.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Step 1 -->
+        <div class="bg-white rounded-xl p-8 sm:p-10 border border-hairline flex flex-col justify-between">
+          <div>
+            <span class="font-mono text-xs text-modu-muted tracking-widest block mb-6">SCHRITT 01</span>
+            <h3 class="text-xl font-normal text-modu-charcoal mb-3" data-lang-de="ÖFFNEN — Sanfter Klick" data-lang-en="SNAP — Quick Open">ÖFFNEN — Sanfter Klick</h3>
+            <p class="text-sm text-[#5C5953] leading-relaxed" data-lang-de="Öffne den Deckel der weissen Dose mit einem sanften Klick und nimm einen der ultraflachen Beutel heraus." data-lang-en="Open the top compartment of the white puck with a gentle click and take out one slim fleece pouch.">
+              Öffne den Deckel der weissen Dose mit einem sanften Klick und nimm einen der ultraflachen Beutel heraus.
+            </p>
+          </div>
+          <div class="mt-8 pt-4 border-t border-hairline text-[11px] font-mono text-modu-muted">
+            DOPPEL-FACH MECHANIK
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-white rounded-xl p-8 sm:p-10 border border-hairline flex flex-col justify-between">
+          <div>
+            <span class="font-mono text-xs text-modu-muted tracking-widest block mb-6">SCHRITT 02</span>
+            <h3 class="text-xl font-normal text-modu-charcoal mb-3" data-lang-de="PLATZIEREN — Unsichtbar im Mund" data-lang-en="TUCK — Invisible Placement">PLATZIEREN — Unsichtbar im Mund</h3>
+            <p class="text-sm text-[#5C5953] leading-relaxed" data-lang-de="Lege den Beutel bequem zwischen deine Oberlippe und das Zahnfleisch. Völlig unsichtbar von aussen — du kannst ganz normal sprechen und lachen." data-lang-en="Place the dry pouch comfortably between your upper lip and gum. It is completely invisible from the outside—you can talk and smile naturally.">
+              Lege den Beutel bequem zwischen deine Oberlippe und das Zahnfleisch. Völlig unsichtbar von aussen — du kannst ganz normal sprechen und lachen.
+            </p>
+          </div>
+          <div class="mt-8 pt-4 border-t border-hairline text-[11px] font-mono text-modu-muted">
+            100% UNBEMERKT
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-white rounded-xl p-8 sm:p-10 border border-hairline flex flex-col justify-between">
+          <div>
+            <span class="font-mono text-xs text-modu-muted tracking-widest block mb-6">SCHRITT 03</span>
+            <h3 class="text-xl font-normal text-modu-charcoal mb-3" data-lang-de="GENIESSEN — Sauber verstaut" data-lang-en="ENJOY — Clean Storage">GENIESSEN — Sauber verstaut</h3>
+            <p class="text-sm text-[#5C5953] leading-relaxed" data-lang-de="Spüre die frische Kühle, während die Wirkstoffe 20 bis 30 Minuten lang sanft freigesetzt werden. Danach verstaust du den Beutel einfach im diskreten Fach des Deckels." data-lang-en="Feel a fresh, cool sensation as the active nutrients absorb over 20 to 30 minutes. Once done, simply tuck the used pouch into the discreet compartment on top of the lid.">
+              Spüre die frische Kühle, während die Wirkstoffe 20 bis 30 Minuten lang sanft freigesetzt werden. Danach verstaust du den Beutel einfach im diskreten Fach des Deckels.
+            </p>
+          </div>
+          <div class="mt-8 pt-4 border-t border-hairline text-[11px] font-mono text-modu-muted">
+            KEIN ABFALL UNTERWEGS
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 5: SWISS RIGOR & CLEAN STANDARDS -->
+  <section id="standards" class="py-24 md:py-32 border-b border-hairline bg-[#F4EFE6]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <div class="lg:col-span-6 flex flex-col items-start text-left">
+          <span class="text-xs font-mono uppercase tracking-widest text-modu-muted block mb-2" data-lang-de="SCHWEIZER QUALITÄT" data-lang-en="SWISS QUALITY">SCHWEIZER QUALITÄT</span>
+          <h2 class="text-3xl sm:text-5xl font-light tracking-tightest mt-2 mb-6 text-modu-charcoal" data-lang-de="Entwickelt in Zürich. Unabhängig laborgeprüft." data-lang-en="Engineered in Zurich. Independently Tested.">
+            Entwickelt in Zürich. Unabhängig laborgeprüft.
+          </h2>
+          <p class="text-[#4A4742] text-base leading-relaxed mb-8" data-lang-de="Jede Charge von MODU wird in der Schweiz formuliert und von unabhängigen Laboren zertifiziert – für exakten Wirkstoffgehalt, höchste Reinheit und absolute Sicherheit." data-lang-en="Every batch of MODU is engineered in Switzerland and tested by certified independent laboratories to guarantee exact active dosing, safety, and pure ingredients.">
+            Jede Charge von MODU wird in der Schweiz formuliert und von unabhängigen Laboren zertifiziert – für exakten Wirkstoffgehalt, höchste Reinheit und absolute Sicherheit.
+          </p>
+
+          <div class="space-y-4 w-full">
+            <div class="p-4 bg-white rounded-xl border border-hairline">
+              <span class="font-medium text-modu-charcoal block text-sm mb-1" data-lang-de="0% Nikotin & Tabak" data-lang-en="0% Synthetic Nicotine & Tobacco">0% Nikotin &amp; Tabak</span>
+              <p class="text-xs text-[#5C5953] leading-relaxed" data-lang-de="Wir nutzen die moderne Beutel-Technologie ausschliesslich für funktionale Gesundheit — kompromisslos frei von Suchtstoffen." data-lang-en="We use clean pouch technology purely for health and wellness—100% free of addictive substances.">
+                Wir nutzen die moderne Beutel-Technologie ausschliesslich für funktionale Gesundheit — kompromisslos frei von Suchtstoffen.
+              </p>
+            </div>
+
+            <div class="p-4 bg-white rounded-xl border border-hairline">
+              <span class="font-medium text-modu-charcoal block text-sm mb-1" data-lang-de="Zahnfreundlich" data-lang-en="Tooth-Friendly">Zahnfreundlich</span>
+              <p class="text-xs text-[#5C5953] leading-relaxed" data-lang-de="Natürlich gesüsst mit Birken-Xylit und Steviablättern. Frei von Aspartam, künstlichen Farbstoffen oder Kalorien." data-lang-en="Naturally sweetened with birch xylitol and stevia leaf. Zero artificial sweeteners, zero aspartame, 0 calories.">
+                Natürlich gesüsst mit Birken-Xylit und Steviablättern. Frei von Aspartam, künstlichen Farbstoffen oder Kalorien.
+              </p>
+            </div>
+
+            <div class="p-4 bg-white rounded-xl border border-hairline">
+              <span class="font-medium text-modu-charcoal block text-sm mb-1" data-lang-de="100% Recycelbar" data-lang-en="100% Recyclable Packaging">100% Recycelbar</span>
+              <p class="text-xs text-[#5C5953] leading-relaxed" data-lang-de="Unsere glatten, weissen Dosen (PP 05) werden von Schweizer und europäischen Recyclinganlagen vollständig wiederverwertet." data-lang-en="Our smooth clinical white cans (PP 05) are fully recyclable in standard plastic streams.">
+                Unsere glatten, weissen Dosen (PP 05) werden von Schweizer und europäischen Recyclinganlagen vollständig wiederverwertet.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Alpine Summit Visual Anchor -->
+        <div class="lg:col-span-6">
+          <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden border border-hairline bg-white p-3">
+            <img src="assets/campaign/campaign_diversity_trio.jpg" alt="MODU Switzerland Alpine Vitality" class="w-full h-full object-cover rounded-xl filter saturate-[0.95]">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 6: RETAIL AVAILABILITY & STORE LOCATOR -->
+  <section id="locator" class="py-24 md:py-32 border-b border-hairline bg-[#FAF8F2]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <div class="lg:col-span-6 flex flex-col items-start text-left">
+          <span class="text-xs font-mono uppercase tracking-widest text-modu-muted block mb-2" data-lang-de="STANDORTE" data-lang-en="WHERE TO FIND US">STANDORTE</span>
+          <h2 class="text-3xl sm:text-5xl font-light tracking-tightest mt-2 mb-6 text-modu-charcoal" data-lang-de="Schweizweit erhältlich. Direkt an der Apotheken-Theke." data-lang-en="Available Across Switzerland. Right at the Pharmacy Counter.">
+            Schweizweit erhältlich. Direkt an der Apotheken-Theke.
+          </h2>
+          <p class="text-[#4A4742] text-base leading-relaxed mb-8" data-lang-de="Hol dir MODU direkt vor Ort. Erhältlich in Schweizer Apotheken, an Bahnhöfen und in ausgewählten Stores." data-lang-en="Try MODU today. Pick up a can at leading Swiss pharmacies, travel hubs, and selected retailers nationwide.">
+            Hol dir MODU direkt vor Ort. Erhältlich in Schweizer Apotheken, an Bahnhöfen und in ausgewählten Stores.
+          </p>
+
+          <div class="w-full aspect-[16/11] bg-white rounded-2xl border border-hairline p-4 overflow-hidden flex items-center justify-center">
+            <img src="assets/retail_cdu/retail_display_cdu_alpine_summit.jpg" alt="MODU Pharmacy Counter Display Unit" class="w-full h-full object-contain rounded-xl">
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 bg-white rounded-2xl p-8 sm:p-10 border border-hairline">
+          <div class="flex items-center justify-between pb-6 mb-6 border-b border-hairline">
+            <span class="font-mono text-xs uppercase tracking-widest text-modu-charcoal font-semibold" data-lang-de="STANDORT-SUCHE (SCHWEIZ)" data-lang-en="STORE LOCATOR (SWITZERLAND)">STANDORT-SUCHE (SCHWEIZ)</span>
+            <span class="text-[11px] font-mono text-modu-emerald font-semibold">● 50+ PARTNER APOTHEKEN</span>
+          </div>
+
+          <div class="relative mb-6">
+            <input type="text" id="store-search" oninput="filterStores()" placeholder="Postleitzahl oder Stadt eingeben, z.B. 8001 Zürich / 3011 Bern" class="w-full px-4 py-3.5 bg-[#FAF8F2] border border-hairline rounded-lg text-sm font-sans focus:outline-none focus:border-modu-charcoal transition-colors">
+            <span class="absolute right-4 top-3.5 text-neutral-400 font-mono text-xs">SUCHEN</span>
+          </div>
+
+          <div id="store-list" class="space-y-3 max-h-80 overflow-y-auto pr-1 text-xs">
+            <div class="p-3.5 bg-[#FAF8F2] rounded-lg border border-hairline flex justify-between items-center">
+              <div>
+                <span class="font-medium text-modu-charcoal block text-sm">Amavita Apotheke Zurich HB</span>
+                <span class="text-modu-muted">Bahnhofplatz 15, 8001 Zürich</span>
+              </div>
+              <span class="px-2.5 py-1 bg-green-50 text-modu-emerald font-mono font-medium rounded-full text-[10px]">AN LAGER</span>
+            </div>
+            <div class="p-3.5 bg-[#FAF8F2] rounded-lg border border-hairline flex justify-between items-center">
+              <div>
+                <span class="font-medium text-modu-charcoal block text-sm">Sun Store Genève Cornavin</span>
+                <span class="text-modu-muted">Place Cornavin 7, 1204 Genève</span>
+              </div>
+              <span class="px-2.5 py-1 bg-green-50 text-modu-emerald font-mono font-medium rounded-full text-[10px]">AN LAGER</span>
+            </div>
+            <div class="p-3.5 bg-[#FAF8F2] rounded-lg border border-hairline flex justify-between items-center">
+              <div>
+                <span class="font-medium text-modu-charcoal block text-sm">Coop Vitality Basel SBB</span>
+                <span class="text-modu-muted">Centralbahnstrasse 10, 4051 Basel</span>
+              </div>
+              <span class="px-2.5 py-1 bg-green-50 text-modu-emerald font-mono font-medium rounded-full text-[10px]">AN LAGER</span>
+            </div>
+            <div class="p-3.5 bg-[#FAF8F2] rounded-lg border border-hairline flex justify-between items-center">
+              <div>
+                <span class="font-medium text-modu-charcoal block text-sm">TopPharm Apotheke Bern Postparc</span>
+                <span class="text-modu-muted">Bogenschützenstrasse 9, 3011 Bern</span>
+              </div>
+              <span class="px-2.5 py-1 bg-green-50 text-modu-emerald font-mono font-medium rounded-full text-[10px]">AN LAGER</span>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-hairline text-center text-xs font-mono text-modu-muted">
+            <span data-lang-de="Auch über Galexis und Amedis für jede Schweizer Apotheke bestellbar." data-lang-en="Orderable at any Swiss pharmacy via Galexis & Amedis.">Auch über Galexis und Amedis für jede Schweizer Apotheke bestellbar.</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 7: QUESTIONS & ANSWERS (FAQ) -->
+  <section id="faq" class="py-24 md:py-32 border-b border-hairline bg-[#FAF8F2]">
+    <div class="max-w-4xl mx-auto px-6">
+      
+      <div class="text-center mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-modu-muted block mb-2">FAQ</span>
+        <h2 class="text-3xl sm:text-5xl font-light tracking-tightest mt-2 text-modu-charcoal" data-lang-de="Häufige Fragen" data-lang-en="Frequently Asked Questions">
+          Häufige Fragen
+        </h2>
+      </div>
+
+      <div class="divide-y divide-hairline border-y border-hairline">
+        
+        <!-- Q1 -->
+        <div class="py-6">
+          <button onclick="toggleFAQ(1)" class="w-full flex items-center justify-between text-left text-base sm:text-lg font-normal text-modu-charcoal focus:outline-none">
+            <span data-lang-de="Wie fühlt sich ein MODU-Beutel unter der Lippe an?" data-lang-en="What does it feel like under the lip? Is tingling normal?">Wie fühlt sich ein MODU-Beutel unter der Lippe an?</span>
+            <span id="faq-icon-1" class="font-mono text-lg text-modu-muted ml-4">+</span>
+          </button>
+          <div id="faq-answer-1" class="hidden pt-4 text-sm text-[#5C5953] leading-relaxed">
+            <p data-lang-de="In den ersten 60 bis 90 Sekunden spürst du eine angenehme Frische und ein sanftes Kribbeln. Das ist völlig normal und zeigt dir, dass die natürlichen Pflanzenextrakte und Minzöle über die Mundschleimhaut aufgenommen werden." data-lang-en="When you first put a MODU pouch under your lip, you will feel a refreshing coolness and a gentle tingle within the first minute. This is completely normal and shows that the natural mint oils and botanical extracts are activating.">
+              In den ersten 60 bis 90 Sekunden spürst du eine angenehme Frische und ein sanftes Kribbeln. Das ist völlig normal und zeigt dir, dass die natürlichen Pflanzenextrakte und Minzöle über die Mundschleimhaut aufgenommen werden.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="py-6">
+          <button onclick="toggleFAQ(2)" class="w-full flex items-center justify-between text-left text-base sm:text-lg font-normal text-modu-charcoal focus:outline-none">
+            <span data-lang-de="Warum stoppt 01 // CRAVE den Heisshunger auf Süsses?" data-lang-en="Why does 01 // CRAVE help stop sugar cravings?">Warum stoppt 01 // CRAVE den Heisshunger auf Süsses?</span>
+            <span id="faq-icon-2" class="font-mono text-lg text-modu-muted ml-4">+</span>
+          </button>
+          <div id="faq-answer-2" class="hidden pt-4 text-sm text-[#5C5953] leading-relaxed">
+            <p data-lang-de="01 // CRAVE enthält reinen Gymnema Sylvestre-Extrakt. Dieser pausiert vorübergehend deine Süss-Rezeptoren auf der Zunge. Für etwa 30 bis 60 Minuten schmeckt Süsses neutral – der Reiz verfliegt sofort und Heisshunger hat keine Chance." data-lang-en="01 // CRAVE contains natural Gymnema Sylvestre leaf extract. It temporarily pauses your sweet taste buds. For about 30 to 60 minutes after use, sweet foods taste neutral, taking the fun out of sugary snacks and stopping cravings instantly.">
+              01 // CRAVE enthält reinen Gymnema Sylvestre-Extrakt. Dieser pausiert vorübergehend deine Süss-Rezeptoren auf der Zunge. Für etwa 30 bis 60 Minuten schmeckt Süsses neutral – der Reiz verfliegt sofort und Heisshunger hat keine Chance.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="py-6">
+          <button onclick="toggleFAQ(3)" class="w-full flex items-center justify-between text-left text-base sm:text-lg font-normal text-modu-charcoal focus:outline-none">
+            <span data-lang-de="Warum macht 02 // MOTION nicht müde wie Reisetabletten?" data-lang-en="Why doesn't 02 // MOTION make you tired like travel tablets?">Warum macht 02 // MOTION nicht müde wie Reisetabletten?</span>
+            <span id="faq-icon-3" class="font-mono text-lg text-modu-muted ml-4">+</span>
+          </button>
+          <div id="faq-answer-3" class="hidden pt-4 text-sm text-[#5C5953] leading-relaxed">
+            <p data-lang-de="Herkömmliche Reisetabletten machen oft schwer und müde. 02 // MOTION setzt auf reinen Ingwerextrakt, der das flaue Gefühl im Magen sanft beruhigt, während L-Theanin und Vitamin B6 dein Nervensystem entspannen – ganz ohne Schläfrigkeit. Du bleibst 100% wach und fit." data-lang-en="Traditional travel pills often use sedating antihistamines that make you groggy and sleepy. 02 // MOTION relies on natural ginger extract to settle stomach unrest, while L-Theanine and Vitamin B6 calm your inner balance—keeping you 100% alert and refreshed.">
+              Herkömmliche Reisetabletten machen oft schwer und müde. 02 // MOTION setzt auf reinen Ingwerextrakt, der das flaue Gefühl im Magen sanft beruhigt, während L-Theanin und Vitamin B6 dein Nervensystem entspannen – ganz ohne Schläfrigkeit. Du bleibst 100% wach und fit.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="py-6">
+          <button onclick="toggleFAQ(4)" class="w-full flex items-center justify-between text-left text-base sm:text-lg font-normal text-modu-charcoal focus:outline-none">
+            <span data-lang-de="Wie viele Beutel darf ich pro Tag verwenden?" data-lang-en="How many pouches can I use per day?">Wie viele Beutel darf ich pro Tag verwenden?</span>
+            <span id="faq-icon-4" class="font-mono text-lg text-modu-muted ml-4">+</span>
+          </button>
+          <div id="faq-answer-4" class="hidden pt-4 text-sm text-[#5C5953] leading-relaxed">
+            <p data-lang-de="Bei 01 // CRAVE kannst du problemlos 3 bis 4 Beutel über den Tag verteilt geniessen (entspricht etwa zwei kleinen Tassen Kaffee). Bei 02 // MOTION nimmst du 1 Beutel vor der Abfahrt und bei langen Reisen flexibel bis zu 3 Beutel täglich." data-lang-en="For 01 // CRAVE, you can enjoy 3 to 4 pouches daily (equivalent to about two small coffees). For 02 // MOTION, take 1 pouch before departure and re-dose up to 3 pouches daily during long trips as needed.">
+              Bei 01 // CRAVE kannst du problemlos 3 bis 4 Beutel über den Tag verteilt geniessen (entspricht etwa zwei kleinen Tassen Kaffee). Bei 02 // MOTION nimmst du 1 Beutel vor der Abfahrt und bei langen Reisen flexibel bis zu 3 Beutel täglich.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="py-6">
+          <button onclick="toggleFAQ(5)" class="w-full flex items-center justify-between text-left text-base sm:text-lg font-normal text-modu-charcoal focus:outline-none">
+            <span data-lang-de="Darf ich während der Anwendung schlucken?" data-lang-en="Can I swallow my saliva while using a pouch?">Darf ich während der Anwendung schlucken?</span>
+            <span id="faq-icon-5" class="font-mono text-lg text-modu-muted ml-4">+</span>
+          </button>
+          <div id="faq-answer-5" class="hidden pt-4 text-sm text-[#5C5953] leading-relaxed">
+            <p data-lang-de="Ja, natürlich. Das normale Schlucken ist völlig unbedenklich. Den Beutel selbst schluckst du nicht herunter. Nach 20 bis 30 Minuten nimmst du ihn einfach heraus und verstaust ihn im Fach des Deckels." data-lang-en="Yes, absolutely. Swallowing saliva is completely natural and safe. Just don't swallow the pouch itself. After 20 to 30 minutes, simply take it out and tuck it into the top lid compartment.">
+              Ja, natürlich. Das normale Schlucken ist völlig unbedenklich. Den Beutel selbst schluckst du nicht herunter. Nach 20 bis 30 Minuten nimmst du ihn einfach heraus und verstaust ihn im Fach des Deckels.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER: SWISS MINIMALIST DIRECTORY -->
+  <footer class="py-16 bg-[#EDE7DB] text-[#5C5953] text-xs font-mono">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-hairline">
+        
+        <div class="md:col-span-4">
+          <span class="font-sans font-semibold text-xl wordmark-spacing text-modu-charcoal block mb-1">M O D U</span>
+          <span class="text-[9px] font-medium switzerland-spacing uppercase text-modu-muted block mb-4">SWITZERLAND AG</span>
+          <p class="text-[11px] text-[#737067] leading-relaxed max-w-xs font-sans">
+            MODU SWITZERLAND AG<br>
+            Gotthardstrasse 26, CH-8001 Zürich<br>
+            CHE-389.412.801 MWST
+          </p>
+        </div>
+
+        <div class="md:col-span-2">
+          <span class="text-modu-charcoal font-semibold block mb-3 uppercase tracking-wider">FORMELN</span>
+          <ul class="space-y-2 text-[11px]">
+            <li><a href="#remedies" onclick="switchProduct('crave')" class="hover:text-black">01 // CRAVE</a></li>
+            <li><a href="#remedies" onclick="switchProduct('motion')" class="hover:text-black">02 // MOTION</a></li>
+            <li class="text-neutral-400">03 // FOCUS (Bald)</li>
+            <li class="text-neutral-400">04 // ENERGY (Bald)</li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3">
+          <span class="text-modu-charcoal font-semibold block mb-3 uppercase tracking-wider">SCHWEIZER VERTRIEB</span>
+          <ul class="space-y-2 text-[11px]">
+            <li><a href="pitch.html" class="hover:text-black">Master Pitch Deck ↗</a></li>
+            <li><a href="#locator" class="hover:text-black">Apotheken-Netzwerk</a></li>
+            <li>Galexis Pharmacode: 789 2141</li>
+            <li>Amedis Pharmacode: 789 2142</li>
+            <li>b2b@modu.ch</li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3">
+          <span class="text-modu-charcoal font-semibold block mb-3 uppercase tracking-wider">RECHTLICHES</span>
+          <p class="text-[10px] text-neutral-400 leading-normal">
+            Nahrungsergänzungsmittel mit Pflanzenextrakten, Koffein und Vitaminen. Enthält Koffein (160 mg / 4 Beutel). Für Kinder und schwangere Frauen nicht empfohlen. Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene Ernährung. Ausserhalb der Reichweite von kleinen Kindern lagern.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-neutral-500">
+        <div>&copy; 2026 MODU SWITZERLAND AG. ALL RIGHTS RESERVED.</div>
+        <div class="flex gap-6">
+          <span>PP 05 100% RECYCELBAR</span>
+          <span>0% NIKOTIN</span>
+          <span>SWISS FORMULATION</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC: Smooth Rotational Physics, Turntable & Decomposition -->
+  <script>
+    let currentLang = 'de';
+    let currentProduct = 'crave';
+
+    // 360° Keyframe Angles & Image Asset Mapping
+    const turntableAngles = [
+      { angle: 0, src: "assets/packshots/packshot_front.jpg", label: "0° DRAUFSICHT", labelEn: "0° TOP VIEW", shadowScale: 1.0 },
+      { angle: 45, src: "assets/packshots/packshot_angle_45.jpg", label: "45° PERSPEKTIVE", labelEn: "45° ISOMETRIC", shadowScale: 1.15 },
+      { angle: 90, src: "assets/packshots/packshot_side.jpg", label: "90° PROFIL (22 MM)", labelEn: "90° RIM PROFILE (22 MM)", shadowScale: 1.25 },
+      { angle: 180, src: "assets/packshots/packshot_back.jpg", label: "180° RECHTLICHER BODEN", labelEn: "180° BASE LABEL", shadowScale: 1.0 },
+      { angle: 270, src: "assets/packshots/packshot_open.jpg", label: "270° INNENLEBEN (20 BEUTEL)", labelEn: "270° OPEN CAN (20 POUCHES)", shadowScale: 1.1 }
+    ];
+
+    let currentAngle = 0;
+    let targetAngle = 0;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartAngle = 0;
+    let lastDragX = 0;
+    let dragVelocity = 0;
+    let isAutoRotating = false;
+    let animFrameId = null;
+
+    const productData = {
+      crave: {
+        code: "01 // CRAVE",
+        badge: "01 // CRAVE",
+        horizonClass: "horizon-emerald",
+        heroHorizonClass: "horizon-emerald",
+        badgeClass: "bg-modu-emerald/10 text-modu-emerald border-modu-emerald/30",
+        tabActiveClass: "bg-white text-modu-charcoal shadow-sm",
+        tabInactiveClass: "text-modu-muted hover:text-black",
+        de: {
+          title: "Sättigung & Süssverlangen stoppen",
+          desc: "Heisshunger auf Süsses ist kein Mangel an Disziplin, sondern eine automatische Reaktion deiner Geschmacksknospen. 01 // CRAVE stoppt dieses Verlangen direkt im Mund.",
+          m1Title: "Schaltet den Süssgeschmack ab:",
+          m1Desc: "Reiner Gymnema Sylvestre-Extrakt blockiert deine Süss-Rezeptoren auf der Zunge. Für 30 bis 60 Minuten schmeckt Zucker neutral bis fade – die Lust auf Süsses verfliegt sofort.",
+          m2Title: "Stabile Energie:",
+          m2Desc: "Hochwertiges Chrom hilft, deinen Blutzuckerspiegel in Balance zu halten und verhindert das typische Nachmittagstief.",
+          m3Title: "Klarer Kopf:",
+          m3Desc: "40 mg natürliches Koffein aus grünen Kaffeebohnen kombiniert mit beruhigendem L-Theanin schenken dir wachen Fokus ganz ohne Nervosität.",
+          payload: `
+            <div><span class="font-semibold block text-sm text-black">40 MG</span>Koffein</div>
+            <div><span class="font-semibold block text-sm text-black">60 MG</span>Theanin</div>
+            <div><span class="font-semibold block text-sm text-black">25 MG</span>Gymnema</div>
+            <div><span class="font-semibold block text-sm text-black">0 ZUCKER</span>0 Kalorien</div>
+          `,
+          decompTitle: "03 / Aktiver Wirkstoffkern (CRAVE)",
+          decompDesc: "Mikronisierter Gymnema Sylvestre-Extrakt (75% Gymneminsäuren) blockiert deine Süss-Rezeptoren, während grünes Koffein (40 mg), L-Theanin (60 mg) und Chrompicolinat Blutzucker und Fokus stabilisieren."
+        },
+        en: {
+          title: "Satiety & Sweet Craving Blockade",
+          desc: "Sugar cravings are not a lack of willpower; they are an automated chemical reflex triggered by your taste buds. 01 // CRAVE stops cravings right where they start: on your tongue.",
+          m1Title: "Turns Off Sweet Taste:",
+          m1Desc: "Pure Gymnema Sylvestre leaf extract temporarily blocks sweet taste receptors. For 30 to 60 minutes, sweet snacks taste flat and unappealing—instantly breaking the craving loop.",
+          m2Title: "Steady Energy:",
+          m2Desc: "Essential Chromium helps maintain balanced blood sugar levels, preventing afternoon energy slumps.",
+          m3Title: "Clean Focus:",
+          m3Desc: "40 mg of natural caffeine from green coffee beans paired with calming L-Theanine provides clear, calm focus without jitters.",
+          payload: `
+            <div><span class="font-semibold block text-sm text-black">40 MG</span>Caffeine</div>
+            <div><span class="font-semibold block text-sm text-black">60 MG</span>Theanine</div>
+            <div><span class="font-semibold block text-sm text-black">25 MG</span>Gymnema</div>
+            <div><span class="font-semibold block text-sm text-black">0 SUGAR</span>0 Calories</div>
+          `,
+          decompTitle: "03 / Active Nutrient Core (CRAVE)",
+          decompDesc: "Micronized Gymnema Sylvestre extract (75% gymnemic acids) desensitizes lingual sweet receptors, while clean caffeine (40 mg), L-Theanine (60 mg), and Chromium stabilize glucose and mental focus."
+        }
+      },
+      motion: {
+        code: "02 // MOTION",
+        badge: "02 // MOTION",
+        horizonClass: "horizon-amber",
+        heroHorizonClass: "horizon-amber",
+        badgeClass: "bg-amber-50 text-amber-700 border-amber-300",
+        tabActiveClass: "bg-white text-modu-charcoal shadow-sm",
+        tabInactiveClass: "text-modu-muted hover:text-black",
+        de: {
+          title: "Reise-Balance & Schnelle Hilfe bei Übelkeit",
+          desc: "Reiseübelkeit entsteht, wenn deine Augen und dein Gleichgewichtsorgan im Innenohr unterschiedliche Signale senden – der Magen gerät aus dem Takt. 02 // MOTION bringt dein Gleichgewicht schnell zur Ruhe – ganz ohne Müdigkeit.",
+          m1Title: "Beruhigt den Magen sofort:",
+          m1Desc: "Reiner Ingwerextrakt stoppt das flaue Gefühl im Magen sanft und in Rekordzeit.",
+          m2Title: "Entspannt das Gleichgewicht:",
+          m2Desc: "Hochreines L-Theanin und Zitronenmelisse beruhigen die nervöse Reise-Unruhe und das Innenohr.",
+          m3Title: "Verlässlicher Reiseschutz:",
+          m3Desc: "Ausgewähltes Vitamin B6 unterstützt dein Nervensystem und sorgt für anhaltende Reise-Balance – ideal für lange Fahrten und Flüge.",
+          payload: `
+            <div><span class="font-semibold block text-sm text-black">30 MG</span>Ingwerextrakt</div>
+            <div><span class="font-semibold block text-sm text-black">5 MG</span>Vitamin B6</div>
+            <div><span class="font-semibold block text-sm text-black">50 MG</span>Theanin</div>
+            <div><span class="font-semibold block text-sm text-black">0 MÜDIGKEIT</span>100% Wach</div>
+          `,
+          decompTitle: "03 / Aktiver Wirkstoffkern (MOTION)",
+          decompDesc: "Standardisierter Ingwerextrakt (5% Gingerole) entspannt die Magenmuskulatur, während Vitamin B6 (5.0 mg) und Pfefferminzöl das Innenohr und den Brechreiz gezielt beruhigen."
+        },
+        en: {
+          title: "Travel Equilibrium & Fast Nausea Relief",
+          desc: "Travel nausea happens when your eyes and inner ear send conflicting signals to your brain, throwing your stomach off balance. 02 // MOTION calms your stomach and restores balance fast—without making you drowsy.",
+          m1Title: "Calms the Stomach Fast:",
+          m1Desc: "Pure ginger root extract quickly soothes stomach unrest and quells the uneasy nausea reflex.",
+          m2Title: "Relaxes Your Inner Balance:",
+          m2Desc: "Pure L-Theanine and lemon balm extract calm the inner-ear motion response and nervous tension.",
+          m3Title: "Travel Protection:",
+          m3Desc: "Vitamin B6 supports your nervous system, keeping your energy stable so you can enjoy long drives, flights, or boat trips.",
+          payload: `
+            <div><span class="font-semibold block text-sm text-black">30 MG</span>Ginger Extract</div>
+            <div><span class="font-semibold block text-sm text-black">5 MG</span>Vitamin B6</div>
+            <div><span class="font-semibold block text-sm text-black">50 MG</span>Theanine</div>
+            <div><span class="font-semibold block text-sm text-black">NON-DROWSY</span>100% Alert</div>
+          `,
+          decompTitle: "03 / Active Nutrient Core (MOTION)",
+          decompDesc: "Concentrated ginger extract (5% gingerols) soothes gastric motility, while Pyridoxine HCl (5.0 mg Vitamin B6) and pure peppermint essential oils stabilize vestibular equilibrium."
+        }
+      }
+    };
+
+    function switchProduct(prodKey) {
+      currentProduct = prodKey;
+      const data = productData[prodKey];
+      const langContent = data[currentLang];
+
+      const hz = document.getElementById('horizon-line');
+      hz.className = data.horizonClass + " w-full mb-6 transition-smooth";
+
+      const heroHz = document.getElementById('hero-horizon-line');
+      if (heroHz) {
+        heroHz.className = data.heroHorizonClass + " w-full mb-12 transition-smooth";
+      }
+
+      const badge = document.getElementById('product-badge');
+      badge.innerText = data.badge;
+      badge.className = "px-3 py-1 rounded-full uppercase font-semibold " + data.badgeClass;
+
+      const code = document.getElementById('product-code');
+      code.innerText = data.code;
+      code.className = prodKey === 'crave' ? "text-xs font-mono uppercase tracking-widest text-modu-emerald font-semibold" : "text-xs font-mono uppercase tracking-widest text-amber-600 font-semibold";
+
+      document.getElementById('product-title').innerText = langContent.title;
+      document.getElementById('product-description').innerText = langContent.desc;
+      document.getElementById('mech-1-title').innerText = langContent.m1Title;
+      document.getElementById('mech-1-desc').innerText = langContent.m1Desc;
+      document.getElementById('mech-2-title').innerText = langContent.m2Title;
+      document.getElementById('mech-2-desc').innerText = langContent.m2Desc;
+      document.getElementById('mech-3-title').innerText = langContent.m3Title;
+      document.getElementById('mech-3-desc').innerText = langContent.m3Desc;
+      document.getElementById('product-payload').innerHTML = langContent.payload;
+
+      // Update Decomposition Box
+      const decompLayer = document.getElementById('decomp-active-layer');
+      const decompTitle = document.getElementById('decomp-active-title');
+      const decompSku = document.getElementById('decomp-active-sku');
+      const decompDesc = document.getElementById('decomp-active-desc');
+
+      if (prodKey === 'crave') {
+        decompLayer.className = "decomp-layer-highlight p-5 bg-gradient-to-br from-white to-[#F0FAF5] rounded-xl border border-modu-emerald/40 transition-colors cursor-pointer";
+        decompTitle.className = "text-xs font-mono font-semibold text-modu-emerald";
+        decompSku.className = "text-[10px] font-mono text-modu-emerald font-semibold";
+      } else {
+        decompLayer.className = "decomp-layer-highlight p-5 bg-gradient-to-br from-white to-[#FFFBF0] rounded-xl border border-amber-400/40 transition-colors cursor-pointer";
+        decompTitle.className = "text-xs font-mono font-semibold text-amber-600";
+        decompSku.className = "text-[10px] font-mono text-amber-600 font-semibold";
+      }
+      decompTitle.innerText = langContent.decompTitle;
+      decompSku.innerText = data.code;
+      decompDesc.innerText = langContent.decompDesc;
+
+      const tabCrave = document.getElementById('tab-crave');
+      const tabMotion = document.getElementById('tab-motion');
+      if (prodKey === 'crave') {
+        tabCrave.className = "px-6 py-2.5 rounded-full text-xs font-mono uppercase font-semibold transition-smooth bg-white text-modu-charcoal shadow-sm flex items-center gap-2";
+        tabMotion.className = "px-6 py-2.5 rounded-full text-xs font-mono uppercase font-medium transition-smooth text-modu-muted hover:text-black flex items-center gap-2";
+      } else {
+        tabMotion.className = "px-6 py-2.5 rounded-full text-xs font-mono uppercase font-semibold transition-smooth bg-white text-modu-charcoal shadow-sm flex items-center gap-2";
+        tabCrave.className = "px-6 py-2.5 rounded-full text-xs font-mono uppercase font-medium transition-smooth text-modu-muted hover:text-black flex items-center gap-2";
+      }
+
+      // Update Three.js 3D Puck Textures & Accent Lighting
+      updatePuckTextures(prodKey);
+
+      // Update Active Granules Botanical Visualization
+      drawGranules(prodKey);
+
+      // Update Layer 03 Box styling in 3D Anatomy Stage
+      const l3Box = document.getElementById('layer-03-box');
+      const l3Badge = document.getElementById('layer-03-badge');
+      const l3Weight = document.getElementById('layer-03-weight');
+      const l3Actives = document.getElementById('layer-03-actives-text');
+
+      if (prodKey === 'crave') {
+        if (l3Box) l3Box.className = "w-full h-full rounded-2xl border-2 border-modu-emerald/60 bg-gradient-to-br from-white via-[#F0FAF5] to-[#E3F5EC] p-3 shadow-md flex flex-col justify-between transition-all group-hover:scale-102";
+        if (l3Badge) {
+          l3Badge.className = "px-2 py-0.5 rounded bg-white border border-modu-emerald/40 font-semibold text-modu-emerald";
+          l3Badge.innerText = currentLang === 'de' ? "03 // WIRKSTOFFKERN" : "03 // ACTIVE CORE";
+        }
+        if (l3Weight) {
+          l3Weight.className = "text-modu-emerald font-semibold";
+          l3Weight.innerText = "380 MG PAYLOAD";
+        }
+        if (l3Actives) {
+          l3Actives.className = "text-[#3C5844] font-semibold text-[8px] sm:text-[9px]";
+          l3Actives.innerText = "GYMNEMA • KOFFEIN • THEANIN";
+        }
+      } else {
+        if (l3Box) l3Box.className = "w-full h-full rounded-2xl border-2 border-amber-400/60 bg-gradient-to-br from-white via-[#FFFBF0] to-[#FEF3D6] p-3 shadow-md flex flex-col justify-between transition-all group-hover:scale-102";
+        if (l3Badge) {
+          l3Badge.className = "px-2 py-0.5 rounded bg-white border border-amber-400/50 font-semibold text-amber-700";
+          l3Badge.innerText = currentLang === 'de' ? "03 // WIRKSTOFFKERN" : "03 // ACTIVE CORE";
+        }
+        if (l3Weight) {
+          l3Weight.className = "text-amber-700 font-semibold";
+          l3Weight.innerText = "380 MG PAYLOAD";
+        }
+        if (l3Actives) {
+          l3Actives.className = "text-[#87551D] font-semibold text-[8px] sm:text-[9px]";
+          l3Actives.innerText = "INGWER • VITAMIN B6 • THEANIN";
+        }
+      }
+    }
+
+    // ==========================================
+    // 1. THREE.JS 3D WEBGL PUCK ENGINE (PHOTOREALISTIC SWISS SNUS CANISTER)
+    // ==========================================
+    let puckScene, puckCamera, puckRenderer;
+    let puckGroup, bodyMesh, topLabelMesh, bottomLabelMesh, sideLabelMesh, puckShadowMesh;
+    let topTex, sideTex, bottomTex;
+    let topMat, sideMat, bottomMat, bodyMat;
+    let isPuckDragging = false;
+    let puckDragStartX = 0;
+    let puckDragStartY = 0;
+    let puckLastX = 0;
+    let puckLastY = 0;
+    let puckVelX = 0;
+    let puckVelY = 0;
+    let isPuckAutoRotating = true;
+    let isPuckTweening = false;
+    let tweenStartTime = 0;
+    let tweenDuration = 600;
+    let tweenStartRotX = 0, tweenStartRotY = 0;
+    let tweenTargetRotX = 0, tweenTargetRotY = 0;
+    let puckClock = null;
+
+    function isWebGLAvailable() {
+      try {
+        const canvas = document.createElement('canvas');
+        return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+      } catch (e) {
+        return false;
+      }
+    }
+
+    // Dynamic High-Resolution Photorealistic Textures (Matching Real Packshots 1:1)
+    function generateTopTexture(sku) {
+      const canvas = document.createElement('canvas');
+      canvas.width = 1024;
+      canvas.height = 1024;
+      const ctx = canvas.getContext('2d');
+
+      // Crisp white vinyl sticker base
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(0, 0, 1024, 1024);
+
+      // Outer sticker perimeter hairline
+      ctx.beginPath();
+      ctx.arc(512, 512, 506, 0, Math.PI * 2);
+      ctx.strokeStyle = '#EBE7DE';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Catch Lid Finger Notch Tab at 12 o'clock (Molded indent contour from packshot_front.jpg)
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(430, 40);
+      ctx.bezierCurveTo(440, 135, 584, 135, 594, 40);
+      ctx.closePath();
+      const tabGrad = ctx.createLinearGradient(512, 40, 512, 135);
+      tabGrad.addColorStop(0, 'rgba(215, 210, 200, 0.65)');
+      tabGrad.addColorStop(0.35, 'rgba(235, 230, 222, 0.35)');
+      tabGrad.addColorStop(1, 'rgba(255, 255, 255, 0.9)');
+      ctx.fillStyle = tabGrad;
+      ctx.fill();
+      ctx.strokeStyle = '#D2CCC0';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.restore();
+
+      // Brand Wordmark: "M O D U" (Bold Neo-Grotesk from packshot_front.jpg)
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = '#111111';
+      ctx.font = 'bold 94px "Instrument Sans", sans-serif';
+      ctx.fillText('M  O  D  U', 512, 345);
+
+      // "SWITZERLAND"
+      ctx.fillStyle = '#111111';
+      ctx.font = '600 30px "Instrument Sans", sans-serif';
+      ctx.fillText('S W I T Z E R L A N D', 512, 415);
+
+      // Kinetic Horizon Bar (Vibrant solid accent from brand identity)
+      const accentColor = sku === 'crave' ? '#00A86B' : '#FFB800';
+      ctx.fillStyle = accentColor;
+      const barWidth = 540;
+      const barHeight = 16;
+      const barX = 512 - barWidth / 2;
+      const barY = 465;
+      ctx.beginPath();
+      ctx.roundRect ? ctx.roundRect(barX, barY, barWidth, barHeight, 8) : ctx.rect(barX, barY, barWidth, barHeight);
+      ctx.fill();
+
+      // SKU Identifier: "01 // CRAVE" or "02 // MOTION"
+      ctx.fillStyle = '#111111';
+      ctx.font = 'bold 48px "Instrument Sans", sans-serif';
+      const skuText = sku === 'crave' ? '01 // CRAVE' : '02 // MOTION';
+      ctx.fillText(skuText, 512, 545);
+
+      // Sub-specifications: "20 SLIM POUCHES | NICOTINE-FREE | 0 KCAL"
+      ctx.fillStyle = '#444444';
+      ctx.font = '600 21px "JetBrains Mono", monospace';
+      ctx.fillText('20 SLIM POUCHES  |  NICOTINE-FREE  |  0 KCAL', 512, 608);
+
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.anisotropy = 8;
+      return texture;
+    }
+
+    function generateSideTexture(sku) {
+      const canvas = document.createElement('canvas');
+      canvas.width = 2048;
+      canvas.height = 512;
+      const ctx = canvas.getContext('2d');
+
+      // Crisp white satin base
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(0, 0, 2048, 512);
+
+      // Hairline borders
+      ctx.strokeStyle = '#EBE7DD';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(0, 10);
+      ctx.lineTo(2048, 10);
+      ctx.moveTo(0, 502);
+      ctx.lineTo(2048, 502);
+      ctx.stroke();
+
+      // Kinetic Horizon Line (Running across upper third, matching packshot_side.jpg)
+      const accentColor = sku === 'crave' ? '#00A86B' : '#FFB800';
+      ctx.fillStyle = accentColor;
+      ctx.fillRect(0, 85, 2048, 22);
+
+      // Two mirrored sections for seamless 360° visibility
+      [512, 1536].forEach(cx => {
+        // Label Text (Matching packshot_side.jpg 1:1)
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle = '#111111';
+        ctx.font = 'bold 50px "Instrument Sans", sans-serif';
+        const sideText = sku === 'crave' 
+          ? 'MODU // 01 CRAVE - 20 POUCHES - SWITZERLAND' 
+          : 'MODU // 02 MOTION - 20 POUCHES - SWITZERLAND';
+        ctx.fillText(sideText, cx, 260);
+
+        // Security Tamper Break Seams (from packshot_side.jpg)
+        ctx.strokeStyle = '#D8D4C8';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(cx - 440, 0);
+        ctx.lineTo(cx - 440, 512);
+        ctx.moveTo(cx + 440, 0);
+        ctx.lineTo(cx + 440, 512);
+        ctx.stroke();
+      });
+
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.wrapS = THREE.RepeatWrapping;
+      texture.anisotropy = 8;
+      return texture;
+    }
+
+    function generateBottomTexture(sku) {
+      const canvas = document.createElement('canvas');
+      canvas.width = 1024;
+      canvas.height = 1024;
+      const ctx = canvas.getContext('2d');
+
+      // Crisp white label base
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(0, 0, 1024, 1024);
+
+      // Outer circular hairline
+      ctx.beginPath();
+      ctx.arc(512, 512, 492, 0, Math.PI * 2);
+      ctx.strokeStyle = '#E8E5DD';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // 8 Injection mold ejector pin dots on outer rim (from packshot_back.jpg)
+      ctx.fillStyle = '#D6D1C4';
+      for (let i = 0; i < 8; i++) {
+        const angle = (i * Math.PI / 4) + Math.PI / 8;
+        const dotX = 512 + Math.cos(angle) * 475;
+        const dotY = 512 + Math.sin(angle) * 475;
+        ctx.beginPath();
+        ctx.arc(dotX, dotY, 4.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      // Header: "ACTIVE INGREDIENTS" (Matching packshot_back.jpg)
+      ctx.fillStyle = '#111111';
+      ctx.font = 'bold 36px "Instrument Sans", sans-serif';
+      ctx.fillText('ACTIVE INGREDIENTS', 420, 240);
+
+      // Nutrition Table Layout
+      const tblX = 260;
+      const tblY = 280;
+      const tblW = 320;
+      const tblH = 160;
+
+      ctx.strokeStyle = '#222222';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(tblX, tblY, tblW, tblH);
+
+      // Table inner lines
+      ctx.beginPath();
+      ctx.moveTo(tblX, tblY + 40); ctx.lineTo(tblX + tblW, tblY + 40);
+      ctx.moveTo(tblX, tblY + 80); ctx.lineTo(tblX + tblW, tblY + 80);
+      ctx.moveTo(tblX, tblY + 120); ctx.lineTo(tblX + tblW, tblY + 120);
+      ctx.moveTo(tblX + 180, tblY); ctx.lineTo(tblX + 180, tblY + tblH);
+      ctx.stroke();
+
+      ctx.font = '500 22px "JetBrains Mono", monospace';
+      ctx.textAlign = 'left';
+
+      if (sku === 'crave') {
+        ctx.fillText('Caffeine', tblX + 15, tblY + 22);
+        ctx.fillText('40mg', tblX + 200, tblY + 22);
+        ctx.fillText('L-Theanine', tblX + 15, tblY + 62);
+        ctx.fillText('60mg', tblX + 200, tblY + 62);
+        ctx.fillText('Gymnema', tblX + 15, tblY + 102);
+        ctx.fillText('25mg', tblX + 200, tblY + 102);
+        ctx.fillText('B12', tblX + 15, tblY + 142);
+        ctx.fillText('5mcg', tblX + 200, tblY + 142);
+      } else {
+        ctx.fillText('Ginger Ext.', tblX + 15, tblY + 22);
+        ctx.fillText('30mg', tblX + 200, tblY + 22);
+        ctx.fillText('Vitamin B6', tblX + 15, tblY + 62);
+        ctx.fillText('5mg', tblX + 200, tblY + 62);
+        ctx.fillText('L-Theanine', tblX + 15, tblY + 102);
+        ctx.fillText('50mg', tblX + 200, tblY + 102);
+        ctx.fillText('Lemon Balm', tblX + 15, tblY + 142);
+        ctx.fillText('15mg', tblX + 200, tblY + 142);
+      }
+
+      // Large "20 POUCHES" to the right of table
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#111111';
+      ctx.font = 'bold 54px "Instrument Sans", sans-serif';
+      ctx.fillText('20', 680, 330);
+      ctx.font = 'bold 24px "Instrument Sans", sans-serif';
+      ctx.fillText('POUCHES', 680, 380);
+
+      // Company info
+      ctx.font = '600 24px "Instrument Sans", sans-serif';
+      ctx.fillText('MODU SWITZERLAND AG', 512, 490);
+      ctx.font = '500 20px "JetBrains Mono", monospace';
+      ctx.fillStyle = '#555555';
+      ctx.fillText('CH-8001 ZURICH', 512, 525);
+
+      // Net weight
+      ctx.fillStyle = '#111111';
+      ctx.font = 'bold 24px "Instrument Sans", sans-serif';
+      ctx.fillText('NET WEIGHT: 7.6g ℮ (20 POUCHES)', 512, 575);
+
+      // Legal disclaimer
+      ctx.fillStyle = '#555555';
+      ctx.font = '400 16px "Instrument Sans", sans-serif';
+      ctx.fillText('Nahrungsergänzungsmittel mit Pflanzenextrakten, Koffein und Vitaminen.', 512, 620);
+      ctx.fillText('Darf nicht in die Hände von kleinen Kindern gelangen.', 512, 645);
+
+      // Recycling & Barcode
+      drawBottomBarcode(ctx, 512 - 160, 680, 320, 85);
+      ctx.fillStyle = '#111111';
+      ctx.font = 'bold 20px "JetBrains Mono", monospace';
+      ctx.fillText('7  640123  456789', 512, 795);
+
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.anisotropy = 8;
+      return texture;
+    }
+
+    function createGroundShadowTexture() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 512;
+      canvas.height = 512;
+      const ctx = canvas.getContext('2d');
+      // Soft, natural studio penumbra without hard edges
+      const grad = ctx.createRadialGradient(256, 256, 40, 256, 256, 240);
+      grad.addColorStop(0, 'rgba(20, 18, 15, 0.38)');
+      grad.addColorStop(0.35, 'rgba(25, 22, 18, 0.18)');
+      grad.addColorStop(0.70, 'rgba(30, 28, 25, 0.04)');
+      grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 512, 512);
+      return canvas;
+    }
+
+    function createStudioEnvironment() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 512;
+      canvas.height = 256;
+      const ctx = canvas.getContext('2d');
+
+      // Neutral studio ambient light
+      const grad = ctx.createLinearGradient(0, 0, 0, 256);
+      grad.addColorStop(0, '#ECE8DF');
+      grad.addColorStop(0.5, '#F8F6F0');
+      grad.addColorStop(1, '#DFD9CE');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 512, 256);
+
+      // Overhead softbox reflection
+      const topSoftbox = ctx.createRadialGradient(256, 30, 5, 256, 30, 150);
+      topSoftbox.addColorStop(0, '#FFFFFF');
+      topSoftbox.addColorStop(0.6, 'rgba(255, 255, 255, 0.65)');
+      topSoftbox.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      ctx.fillStyle = topSoftbox;
+      ctx.fillRect(60, 0, 392, 120);
+
+      // Left rim softbox
+      const rimSoftbox = ctx.createRadialGradient(80, 120, 5, 80, 120, 90);
+      rimSoftbox.addColorStop(0, 'rgba(255, 255, 255, 0.75)');
+      rimSoftbox.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      ctx.fillStyle = rimSoftbox;
+      ctx.fillRect(0, 60, 160, 140);
+
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.mapping = THREE.EquirectangularReflectionMapping;
+      return texture;
+    }
+
+    function drawBottomBarcode(ctx, x, y, width, height) {
+      ctx.fillStyle = '#111111';
+      const pattern = [2, 1, 3, 1, 2, 4, 1, 2, 3, 1, 4, 2, 1, 3, 2, 1, 3, 2, 4, 1, 2, 1, 3, 2, 4, 1, 2, 3, 1, 2, 4, 1, 3, 2];
+      let curX = x;
+      for (let i = 0; i < pattern.length; i++) {
+        const w = pattern[i] * 3.2;
+        if (i % 2 === 0) {
+          ctx.fillRect(curX, y, w, height);
+        }
+        curX += w + 2.5;
+        if (curX > x + width) break;
+      }
+    }
+
+    // Initialize Real Precision Three.js Scene
+    function initThreeJsPuck() {
+      if (puckRenderer) return; // Prevent duplicate initialization
+
+      const canvas = document.getElementById('webgl-turntable-canvas');
+      const box = document.getElementById('turntable-box');
+      if (!canvas || !box || !isWebGLAvailable()) {
+        const fallback = document.getElementById('turntable-fallback');
+        if (fallback) fallback.classList.remove('hidden');
+        if (canvas) canvas.classList.add('hidden');
+        return;
+      }
+
+      puckClock = new THREE.Clock();
+      puckScene = new THREE.Scene();
+
+      // Studio environment reflections for satin polypropylene
+      puckScene.environment = createStudioEnvironment();
+
+      const width = box.clientWidth || 360;
+      const height = 280;
+      puckCamera = new THREE.PerspectiveCamera(34, width / height, 0.1, 1000);
+      puckCamera.position.set(0, 3.0, 7.6);
+      puckCamera.lookAt(0, 0, 0);
+
+      puckRenderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+      puckRenderer.setSize(width, height);
+      puckRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      if (puckRenderer.outputColorSpace !== undefined) {
+        puckRenderer.outputColorSpace = THREE.SRGBColorSpace;
+      }
+      puckRenderer.toneMapping = THREE.ACESFilmicToneMapping;
+      puckRenderer.toneMappingExposure = 1.10;
+
+      // Textures
+      topTex = generateTopTexture(currentProduct);
+      sideTex = generateSideTexture(currentProduct);
+      bottomTex = generateBottomTexture(currentProduct);
+
+      // Build Unified Puck Group
+      puckGroup = new THREE.Group();
+
+      // 1. Canister Injection-Molded Plastic Body (Authentic Swiss 70mm x 22mm Snus Can Profile)
+      const points = [
+        new THREE.Vector2(0, -0.75),
+        new THREE.Vector2(2.26, -0.75),
+        new THREE.Vector2(2.36, -0.72),
+        new THREE.Vector2(2.40, -0.65),
+        new THREE.Vector2(2.40, 0.08),
+        new THREE.Vector2(2.425, 0.10),
+        new THREE.Vector2(2.425, 0.65),
+        new THREE.Vector2(2.38, 0.72),
+        new THREE.Vector2(2.30, 0.75),
+        new THREE.Vector2(1.95, 0.75),
+        new THREE.Vector2(1.90, 0.70),
+        new THREE.Vector2(0, 0.70)
+      ];
+      const bodyGeom = new THREE.LatheGeometry(points, 64);
+      bodyGeom.computeVertexNormals();
+
+      // MeshPhysicalMaterial for authentic satin polymer tactile realism
+      bodyMat = new THREE.MeshPhysicalMaterial({
+        color: 0xFDFCF9,
+        roughness: 0.32,
+        metalness: 0.01,
+        clearcoat: 0.25,
+        clearcoatRoughness: 0.35,
+        reflectivity: 0.4
+      });
+      bodyMesh = new THREE.Mesh(bodyGeom, bodyMat);
+      puckGroup.add(bodyMesh);
+
+      // 2. Top Label Die-Cut Sticker Disc (Inside recessed catch lid)
+      const topLabelGeom = new THREE.CircleGeometry(1.88, 64);
+      topMat = new THREE.MeshPhysicalMaterial({
+        map: topTex,
+        roughness: 0.25,
+        metalness: 0.0,
+        clearcoat: 0.35,
+        clearcoatRoughness: 0.25
+      });
+      topLabelMesh = new THREE.Mesh(topLabelGeom, topMat);
+      topLabelMesh.rotation.x = -Math.PI / 2;
+      topLabelMesh.position.y = 0.702;
+      puckGroup.add(topLabelMesh);
+
+      // 3. Bottom Legal Label Sticker Disc
+      const bottomLabelGeom = new THREE.CircleGeometry(2.24, 64);
+      bottomMat = new THREE.MeshPhysicalMaterial({
+        map: bottomTex,
+        roughness: 0.42,
+        metalness: 0.0
+      });
+      bottomLabelMesh = new THREE.Mesh(bottomLabelGeom, bottomMat);
+      bottomLabelMesh.rotation.x = Math.PI / 2;
+      bottomLabelMesh.position.y = -0.752;
+      puckGroup.add(bottomLabelMesh);
+
+      // 4. Side Banderole Wrap Band
+      const sideLabelGeom = new THREE.CylinderGeometry(2.43, 2.43, 1.28, 64, 1, true);
+      sideMat = new THREE.MeshPhysicalMaterial({
+        map: sideTex,
+        roughness: 0.28,
+        metalness: 0.0,
+        clearcoat: 0.30,
+        clearcoatRoughness: 0.25
+      });
+      sideLabelMesh = new THREE.Mesh(sideLabelGeom, sideMat);
+      sideLabelMesh.position.y = 0.02;
+      puckGroup.add(sideLabelMesh);
+
+      // Initial angle: Upright facing camera, elevated 3D beauty angle (matching packshot_angle_45.jpg)
+      puckGroup.rotation.y = 0;
+      puckGroup.rotation.x = 0.40;
+      puckScene.add(puckGroup);
+
+      // Soft Ground Contact Shadow (Rendered strictly behind all 3D geometry - NO CLIPPING)
+      const shadowCanvas = createGroundShadowTexture();
+      const shadowGeo = new THREE.PlaneGeometry(6.6, 6.6);
+      const shadowMat = new THREE.MeshBasicMaterial({
+        map: new THREE.CanvasTexture(shadowCanvas),
+        transparent: true,
+        opacity: 0.30,
+        depthWrite: false,
+        depthTest: false
+      });
+      puckShadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
+      puckShadowMesh.rotation.x = -Math.PI / 2;
+      puckShadowMesh.renderOrder = -1; // Render first, background contact shadow only
+      puckScene.add(puckShadowMesh);
+
+      // Studio 4-Point Lighting with Swiss pharmaceutical clarity
+      const ambient = new THREE.AmbientLight(0xFFFFFF, 0.75);
+      puckScene.add(ambient);
+
+      const keyLight = new THREE.DirectionalLight(0xFFFBF2, 1.6);
+      keyLight.position.set(-5, 8, 6);
+      puckScene.add(keyLight);
+
+      const fillLight = new THREE.DirectionalLight(0xF4F6FF, 0.7);
+      fillLight.position.set(6, 2, 4);
+      puckScene.add(fillLight);
+
+      const rimLight = new THREE.DirectionalLight(0xFFFFFF, 1.0);
+      rimLight.position.set(0, 7, -6);
+      puckScene.add(rimLight);
+
+      const bottomBounce = new THREE.DirectionalLight(0xFAF8F2, 0.4);
+      bottomBounce.position.set(0, -6, 2);
+      puckScene.add(bottomBounce);
+
+      // Wire Pointer Events
+      setupPuckInteraction(canvas);
+
+      // Resize listener
+      window.addEventListener('resize', onPuckResize);
+
+      // When fonts are ready, re-render textures to guarantee crisp typography
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+          updatePuckTextures(currentProduct);
+        });
+      }
+
+      // Start Render Loop
+      requestAnimationFrame(puckRenderLoop);
+    }
+
+    function updatePuckTextures(sku) {
+      if (!puckRenderer) return;
+      if (topTex) topTex.dispose();
+      if (sideTex) sideTex.dispose();
+      if (bottomTex) bottomTex.dispose();
+
+      topTex = generateTopTexture(sku);
+      sideTex = generateSideTexture(sku);
+      bottomTex = generateBottomTexture(sku);
+
+      if (topMat) { topMat.map = topTex; topMat.needsUpdate = true; }
+      if (sideMat) { sideMat.map = sideTex; sideMat.needsUpdate = true; }
+      if (bottomMat) { bottomMat.map = bottomTex; bottomMat.needsUpdate = true; }
+    }
+
+    function onPuckResize() {
+      const box = document.getElementById('turntable-box');
+      if (!box || !puckRenderer || !puckCamera) return;
+      const width = box.clientWidth || 360;
+      const height = 280;
+      puckCamera.aspect = width / height;
+      puckCamera.updateProjectionMatrix();
+      puckRenderer.setSize(width, height);
+    }
+
+    function setupPuckInteraction(canvas) {
+      canvas.addEventListener('pointerdown', (e) => {
+        isPuckDragging = true;
+        isPuckAutoRotating = false;
+        isPuckTweening = false;
+        puckDragStartX = e.clientX;
+        puckDragStartY = e.clientY;
+        puckLastX = e.clientX;
+        puckLastY = e.clientY;
+        puckVelX = 0;
+        puckVelY = 0;
+        canvas.setPointerCapture(e.pointerId);
+      });
+
+      canvas.addEventListener('pointermove', (e) => {
+        if (!isPuckDragging || !puckGroup) return;
+        const dx = e.clientX - puckLastX;
+        const dy = e.clientY - puckLastY;
+
+        puckGroup.rotation.y += dx * 0.009;
+        puckGroup.rotation.x = Math.max(-1.48, Math.min(1.48, puckGroup.rotation.x + dy * 0.009));
+
+        puckVelY = dx * 0.009;
+        puckVelX = dy * 0.009;
+
+        puckLastX = e.clientX;
+        puckLastY = e.clientY;
+      });
+
+      canvas.addEventListener('pointerup', (e) => {
+        if (!isPuckDragging) return;
+        isPuckDragging = false;
+        try { canvas.releasePointerCapture(e.pointerId); } catch(err){}
+      });
+
+      canvas.addEventListener('pointercancel', () => {
+        isPuckDragging = false;
+      });
+    }
+
+    function puckRenderLoop() {
+      requestAnimationFrame(puckRenderLoop);
+      if (!puckRenderer || !puckGroup) return;
+
+      const delta = puckClock ? puckClock.getDelta() : 0.016;
+
+      if (isPuckTweening) {
+        const now = performance.now();
+        const elapsed = now - tweenStartTime;
+        const progress = Math.min(elapsed / tweenDuration, 1);
+        const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+
+        puckGroup.rotation.x = tweenStartRotX + (tweenTargetRotX - tweenStartRotX) * ease;
+        puckGroup.rotation.y = tweenStartRotY + (tweenTargetRotY - tweenStartRotY) * ease;
+
+        if (progress >= 1) {
+          isPuckTweening = false;
+          if (tweenTargetRotX === 0.40) {
+            isPuckAutoRotating = true;
+          }
+        }
+      } else if (!isPuckDragging && (Math.abs(puckVelX) > 0.0005 || Math.abs(puckVelY) > 0.0005)) {
+        puckGroup.rotation.y += puckVelY;
+        puckGroup.rotation.x = Math.max(-1.48, Math.min(1.48, puckGroup.rotation.x + puckVelX));
+        puckVelX *= 0.92;
+        puckVelY *= 0.92;
+      } else if (isPuckAutoRotating) {
+        puckGroup.rotation.y += 0.006; // Silky smooth 360° orbit
+      }
+
+      // Dynamic Contact Shadow Positioning (Anchored beneath lowest surface point, no clipping)
+      if (puckShadowMesh) {
+        const lowestY = (-Math.abs(Math.sin(puckGroup.rotation.x)) * 2.40 - Math.abs(Math.cos(puckGroup.rotation.x)) * 0.75);
+        puckShadowMesh.position.y = lowestY - 0.04;
+        puckShadowMesh.scale.x = 1.0 + Math.abs(Math.sin(puckGroup.rotation.x)) * 0.20;
+        puckShadowMesh.scale.y = 1.0 - Math.abs(Math.sin(puckGroup.rotation.x)) * 0.12;
+        puckShadowMesh.material.opacity = Math.max(0.12, 0.30 - Math.abs(puckGroup.rotation.x) * 0.10);
+      }
+
+      // Live Degree Tracker & Slider Sync
+      const normDeg = ((puckGroup.rotation.y * 180 / Math.PI) % 360 + 360) % 360;
+      const slider = document.getElementById('turntable-slider');
+      const degText = document.getElementById('slider-degree');
+      const labelEl = document.getElementById('turntable-angle-label');
+
+      if (slider && !isPuckDragging) {
+        slider.value = Math.round(normDeg);
+      }
+      if (degText) {
+        degText.innerText = Math.round(normDeg) + "° / 360°";
+      }
+      if (labelEl) {
+        labelEl.innerText = getPuckAngleLabel(normDeg, puckGroup.rotation.x);
+      }
+
+      puckRenderer.render(puckScene, puckCamera);
+    }
+
+    function getPuckAngleLabel(normDeg, rotX) {
+      if (rotX > 1.0) return currentLang === 'de' ? "0° DRAUFSICHT (DECKEL)" : "0° TOP LID";
+      if (rotX < -1.0) return currentLang === 'de' ? "180° BODEN (LOT/EXP)" : "180° BASE LABEL";
+      if (normDeg >= 315 || normDeg < 45) return currentLang === 'de' ? "0° FRONT" : "0° FRONT";
+      if (normDeg >= 45 && normDeg < 135) return currentLang === 'de' ? "90° PROFIL (22 MM)" : "90° RIM PROFILE";
+      if (normDeg >= 135 && normDeg < 225) return currentLang === 'de' ? "180° RÜCKSEITE" : "180° REAR";
+      return currentLang === 'de' ? "270° PROFIL" : "270° PROFILE";
+    }
+
+    function onPuckSliderInput(val) {
+      if (!puckGroup) return;
+      isPuckAutoRotating = false;
+      isPuckTweening = false;
+      puckVelX = 0;
+      puckVelY = 0;
+      const targetRad = (parseFloat(val) * Math.PI) / 180;
+      puckGroup.rotation.y = targetRad;
+    }
+
+    function tweenPuckToAngle(angle) {
+      if (!puckGroup) return;
+      isPuckAutoRotating = false;
+      isPuckTweening = true;
+      tweenStartTime = performance.now();
+      tweenStartRotX = puckGroup.rotation.x;
+      tweenStartRotY = puckGroup.rotation.y;
+
+      if (angle === 0) {
+        // Top Lid View (directly down onto the label)
+        tweenTargetRotX = 1.48;
+        tweenTargetRotY = Math.round(puckGroup.rotation.y / (Math.PI * 2)) * (Math.PI * 2);
+      } else if (angle === 45) {
+        // 45° 3D Isometric View
+        tweenTargetRotX = 0.40;
+        tweenTargetRotY = Math.round(puckGroup.rotation.y / (Math.PI * 2)) * (Math.PI * 2) + Math.PI * 0.25;
+      } else if (angle === 90) {
+        // Profile Rim View (22mm side)
+        tweenTargetRotX = 0.0;
+        tweenTargetRotY = Math.round(puckGroup.rotation.y / (Math.PI * 2)) * (Math.PI * 2) + Math.PI * 0.5;
+      } else if (angle === 180) {
+        // Base Legal Table View
+        tweenTargetRotX = -1.48;
+        tweenTargetRotY = Math.round(puckGroup.rotation.y / (Math.PI * 2)) * (Math.PI * 2) + Math.PI;
+      } else {
+        // Resume continuous 360° orbit
+        tweenTargetRotX = 0.40;
+        tweenTargetRotY = puckGroup.rotation.y + Math.PI * 0.5;
+        isPuckAutoRotating = true;
+      }
+
+      updateAutoRotateButtonState();
+    }
+
+    function togglePuckAutoRotate() {
+      isPuckAutoRotating = !isPuckAutoRotating;
+      puckVelX = 0;
+      puckVelY = 0;
+      if (isPuckAutoRotating && puckGroup) {
+        puckGroup.rotation.x = 0.40;
+      }
+      updateAutoRotateButtonState();
+    }
+
+    function updateAutoRotateButtonState() {
+      const icon = document.getElementById('autorotate-icon');
+      const text = document.getElementById('autorotate-text');
+      if (!icon || !text) return;
+      if (isPuckAutoRotating) {
+        icon.innerText = '❚❚';
+        text.innerText = currentLang === 'de' ? 'PAUSE' : 'PAUSE';
+      } else {
+        icon.innerText = '▶';
+        text.innerText = currentLang === 'de' ? 'AUTO-SPIN' : 'AUTO-SPIN';
+      }
+    }
+
+    // ==========================================
+    // 2. INTERACTIVE EXPLODED POUCH ANATOMY
+    // ==========================================
+    let decompPercent = 100;
+    let isDecompExploded = true;
+    let isDecompMacroMode = false;
+    let activeFocusedLayer = null;
+
+    function setDecomposition(val) {
+      decompPercent = parseFloat(val);
+      const factor = decompPercent / 100; // 0 = compact, 1 = exploded
+
+      const l1 = document.getElementById('layer-01');
+      const l2 = document.getElementById('layer-02');
+      const l3 = document.getElementById('layer-03');
+      const l4 = document.getElementById('layer-04');
+      const shadow = document.getElementById('pouch-ground-shadow');
+
+      if (l1) l1.style.transform = `translateY(${-95 * factor}px) rotateX(46deg) rotateZ(-24deg)`;
+      if (l2) l2.style.transform = `translateY(${-30 * factor}px) rotateX(46deg) rotateZ(-24deg)`;
+      if (l3) l3.style.transform = `translateY(${35 * factor}px) rotateX(46deg) rotateZ(-24deg)`;
+      if (l4) l4.style.transform = `translateY(${100 * factor}px) rotateX(46deg) rotateZ(-24deg)`;
+
+      if (shadow) {
+        shadow.style.transform = `rotateX(46deg) rotateZ(-24deg) scale(${1 + 0.15 * factor})`;
+        shadow.style.opacity = (0.18 + 0.12 * (1 - factor * 0.5)).toString();
+      }
+
+      const pctEl = document.getElementById('decomp-percent');
+      const badge = document.getElementById('decomp-status-badge');
+      const btnToggle = document.getElementById('btn-decomp-toggle');
+
+      if (pctEl) pctEl.innerText = Math.round(decompPercent) + '%';
+
+      if (decompPercent < 20) {
+        isDecompExploded = false;
+        if (badge) {
+          badge.innerText = currentLang === 'de' ? "✦ STATUS: KOMPAKT (VERSCHLOSSEN)" : "✦ STATUS: ASSEMBLED (SEALED)";
+          badge.className = "px-3 py-1 rounded-full bg-[#FAF8F2] border border-hairline text-[11px] font-mono font-semibold text-modu-muted";
+        }
+        if (btnToggle) {
+          btnToggle.innerText = currentLang === 'de' ? "SCHICHTEN TRENNEN" : "EXPLODE LAYERS";
+        }
+      } else {
+        isDecompExploded = true;
+        if (badge) {
+          badge.innerText = currentLang === 'de' ? "✦ STATUS: DEKOMPONIERT (4 SCHICHTEN)" : "✦ STATUS: EXPLODED (4 LAYERS)";
+          badge.className = "px-3 py-1 rounded-full bg-[#FAF8F2] border border-hairline text-[11px] font-mono font-semibold text-modu-charcoal";
+        }
+        if (btnToggle) {
+          btnToggle.innerText = currentLang === 'de' ? "ZUSAMMENFÜHREN" : "ASSEMBLE POUCH";
+        }
+      }
+
+      drawDecompSvgLines(factor);
+    }
+
+    function toggleDecompExplode() {
+      animateDecompSliderTo(isDecompExploded ? 0 : 100);
+    }
+
+    function animateDecompSliderTo(target) {
+      const start = decompPercent;
+      const duration = 500;
+      const startTime = performance.now();
+
+      function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        const current = start + (target - start) * ease;
+        const slider = document.getElementById('decomp-slider');
+        if (slider) slider.value = current;
+        setDecomposition(current);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function toggleDecompViewMode() {
+      isDecompMacroMode = !isDecompMacroMode;
+      const macroContainer = document.getElementById('macro-photo-container');
+      const sceneContainer = document.getElementById('pouch-3d-scene');
+      const btn = document.getElementById('btn-decomp-viewmode');
+
+      if (isDecompMacroMode) {
+        if (macroContainer) macroContainer.classList.remove('hidden');
+        if (sceneContainer) sceneContainer.classList.add('hidden');
+        if (btn) {
+          btn.innerText = currentLang === 'de' ? "3D ANATOMIE" : "3D ANATOMY";
+          btn.className = "px-3.5 py-1.5 rounded-full bg-modu-charcoal text-white border border-modu-charcoal text-[10px] font-mono font-semibold tracking-wider transition-all";
+        }
+      } else {
+        if (macroContainer) macroContainer.classList.add('hidden');
+        if (sceneContainer) sceneContainer.classList.remove('hidden');
+        if (btn) {
+          btn.innerText = currentLang === 'de' ? "MAKRO-FOTO" : "MACRO PHOTO";
+          btn.className = "px-3.5 py-1.5 rounded-full bg-[#FAF8F2] hover:bg-[#EDE8DE] text-modu-charcoal border border-hairline text-[10px] font-mono font-semibold tracking-wider transition-all";
+        }
+      }
+    }
+
+    function focusLayer(layerNum) {
+      activeFocusedLayer = activeFocusedLayer === layerNum ? null : layerNum;
+
+      [1, 2, 3, 4].forEach(num => {
+        const el = document.getElementById('layer-0' + num);
+        if (!el) return;
+        if (activeFocusedLayer === null) {
+          el.classList.remove('layer-focused', 'layer-dimmed');
+        } else if (num === activeFocusedLayer) {
+          el.classList.add('layer-focused');
+          el.classList.remove('layer-dimmed');
+        } else {
+          el.classList.remove('layer-focused');
+          el.classList.add('layer-dimmed');
+        }
+      });
+
+      const c1 = document.getElementById('decomp-card-1');
+      const c2 = document.getElementById('decomp-card-2');
+      const c3 = document.getElementById('decomp-active-layer');
+
+      [c1, c2, c3].forEach(c => {
+        if (c) c.classList.remove('ring-2', 'ring-modu-charcoal', 'ring-modu-emerald', 'shadow-md');
+      });
+
+      if (activeFocusedLayer === 1 && c1) c1.classList.add('ring-2', 'ring-modu-charcoal', 'shadow-md');
+      if (activeFocusedLayer === 2 && c2) c2.classList.add('ring-2', 'ring-modu-charcoal', 'shadow-md');
+      if (activeFocusedLayer === 3 && c3) c3.classList.add('ring-2', 'ring-modu-emerald', 'shadow-md');
+    }
+
+    function drawDecompSvgLines(factor) {
+      const svg = document.getElementById('decomp-svg-lines');
+      if (!svg) return;
+      if (factor < 0.05) {
+        svg.innerHTML = '';
+        return;
+      }
+      svg.innerHTML = `
+        <line x1="30%" y1="18%" x2="30%" y2="82%" stroke="#C9C4B8" stroke-width="1" stroke-dasharray="3 4" opacity="${0.65 * factor}" />
+        <line x1="70%" y1="18%" x2="70%" y2="82%" stroke="#C9C4B8" stroke-width="1" stroke-dasharray="3 4" opacity="${0.65 * factor}" />
+      `;
+    }
+
+    function drawGranules(sku) {
+      const canvas = document.getElementById('granules-canvas');
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = (rect.width || 300) * 2;
+      canvas.height = (rect.height || 48) * 2;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const w = canvas.width;
+      const h = canvas.height;
+
+      // Organic substrate background
+      const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+      if (sku === 'crave') {
+        bgGrad.addColorStop(0, '#E8F5EE');
+        bgGrad.addColorStop(1, '#D5EDE0');
+      } else {
+        bgGrad.addColorStop(0, '#FFF5E5');
+        bgGrad.addColorStop(1, '#FCE8CE');
+      }
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, w, h);
+
+      let seed = 73;
+      function rnd() {
+        seed = (seed * 9301 + 49297) % 233280;
+        return seed / 233280;
+      }
+
+      // Micro-powder background dust
+      const dustColors = sku === 'crave'
+        ? ['#557A60', '#3D5C46', '#2F4836', '#87AB92']
+        : ['#C68A3C', '#B57529', '#E0A95A', '#8F581A'];
+
+      for (let i = 0; i < 350; i++) {
+        const gx = rnd() * w;
+        const gy = rnd() * h;
+        const gr = 1.0 + rnd() * 2.5;
+        ctx.fillStyle = dustColors[Math.floor(rnd() * dustColors.length)];
+        ctx.globalAlpha = 0.5 + rnd() * 0.45;
+        ctx.beginPath();
+        ctx.arc(gx, gy, gr, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Micronized botanical active granules (authentic pharmaceutical morphology)
+      for (let i = 0; i < 75; i++) {
+        const gx = 15 + rnd() * (w - 30);
+        const gy = 8 + rnd() * (h - 16);
+        const size = 2.5 + rnd() * 4.5;
+        ctx.fillStyle = dustColors[Math.floor(rnd() * dustColors.length)];
+        ctx.globalAlpha = 0.85;
+        ctx.beginPath();
+        ctx.ellipse(gx, gy, size, size * (0.6 + rnd() * 0.4), rnd() * Math.PI, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Subtle specular highlight
+        ctx.fillStyle = '#FFFFFF';
+        ctx.globalAlpha = 0.4;
+        ctx.beginPath();
+        ctx.arc(gx - size * 0.25, gy - size * 0.25, size * 0.25, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Active crystalline micro-pearls (Caffeine/Theanine or B6/Menthol)
+      const crystalColor = '#FAF8F2';
+      for (let i = 0; i < 50; i++) {
+        const cx = 12 + rnd() * (w - 24);
+        const cy = 6 + rnd() * (h - 12);
+        const cr = 1.8 + rnd() * 2.8;
+        ctx.fillStyle = crystalColor;
+        ctx.globalAlpha = 0.92;
+        ctx.beginPath();
+        ctx.arc(cx, cy, cr, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = 'rgba(0,0,0,0.12)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+
+      ctx.globalAlpha = 1.0;
+    }
+
+    // Hero angle buttons
+    function setHeroAngle(angle) {
+      const img = document.getElementById('hero-packshot');
+      const btnFront = document.getElementById('angle-front');
+      const btnSide = document.getElementById('angle-side');
+      const btnOpen = document.getElementById('angle-open');
+
+      const activeClass = "px-2.5 py-1 rounded bg-modu-charcoal text-white font-medium";
+      const inactiveClass = "px-2.5 py-1 rounded text-modu-muted hover:text-black";
+
+      btnFront.className = angle === 'front' ? activeClass : inactiveClass;
+      btnSide.className = angle === 'side' ? activeClass : inactiveClass;
+      btnOpen.className = angle === 'open' ? activeClass : inactiveClass;
+
+      if (angle === 'front') {
+        img.src = "assets/packshots/packshot_front.jpg";
+      } else if (angle === 'side') {
+        img.src = "assets/packshots/packshot_side.jpg";
+      } else if (angle === 'open') {
+        img.src = "assets/packshots/packshot_open.jpg";
+      }
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      const btnDe = document.getElementById('lang-de');
+      const btnEn = document.getElementById('lang-en');
+
+      if (lang === 'de') {
+        btnDe.className = "px-2.5 py-1 rounded-full font-semibold transition-all bg-white text-modu-charcoal shadow-sm";
+        btnEn.className = "px-2.5 py-1 rounded-full text-modu-muted hover:text-black transition-all";
+        document.getElementById('ticker-text').innerText = "🇨🇭 ENTWICKELT IN DER SCHWEIZ // 0% NIKOTIN & TABAK // ERHÄLTLICH IN SCHWEIZER APOTHEKEN & STORES";
+        document.getElementById('store-search').placeholder = "Postleitzahl oder Stadt eingeben, z.B. 8001 Zürich / 3011 Bern";
+      } else {
+        btnEn.className = "px-2.5 py-1 rounded-full font-semibold transition-all bg-white text-modu-charcoal shadow-sm";
+        btnDe.className = "px-2.5 py-1 rounded-full text-modu-muted hover:text-black transition-all";
+        document.getElementById('ticker-text').innerText = "🇨🇭 ENGINEERED IN SWITZERLAND // 0% NICOTINE & TOBACCO // AVAILABLE IN SWISS PHARMACIES & LOCAL STORES";
+        document.getElementById('store-search').placeholder = "Enter your postal code or city, e.g. 8001 Zürich / 1204 Genève";
+      }
+
+      document.querySelectorAll('[data-lang-' + lang + ']').forEach(el => {
+        el.innerText = el.getAttribute('data-lang-' + lang);
+      });
+
+      switchProduct(currentProduct);
+      updateAutoRotateButtonState();
+    }
+
+    function toggleFAQ(id) {
+      const answer = document.getElementById('faq-answer-' + id);
+      const icon = document.getElementById('faq-icon-' + id);
+      if (answer.classList.contains('hidden')) {
+        answer.classList.remove('hidden');
+        icon.innerText = '−';
+      } else {
+        answer.classList.add('hidden');
+        icon.innerText = '+';
+      }
+    }
+
+    function filterStores() {
+      const input = document.getElementById('store-search').value.toLowerCase();
+      const list = document.getElementById('store-list');
+      const stores = [
+        { name: "Amavita Apotheke Zurich HB", address: "Bahnhofplatz 15, 8001 Zürich", plz: "8001", city: "zürich" },
+        { name: "Sun Store Genève Cornavin", address: "Place Cornavin 7, 1204 Genève", plz: "1204", city: "genève" },
+        { name: "Coop Vitality Basel SBB", address: "Centralbahnstrasse 10, 4051 Basel", plz: "4051", city: "basel" },
+        { name: "TopPharm Apotheke Bern Postparc", address: "Bogenschützenstrasse 9, 3011 Bern", plz: "3011", city: "bern" },
+        { name: "Apotheke St. Moritz Dorf", address: "Via Maistra 12, 7500 St. Moritz", plz: "7500", city: "st. moritz" },
+        { name: "Apotheke Zermatt Matterhorn", address: "Bahnhofstrasse 22, 3920 Zermatt", plz: "3920", city: "zermatt" }
+      ];
+
+      const filtered = stores.filter(s => s.name.toLowerCase().includes(input) || s.address.toLowerCase().includes(input) || s.plz.includes(input));
+
+      if (filtered.length === 0) {
+        list.innerHTML = `<div class="p-4 bg-[#FAF8F2] rounded-lg text-neutral-500 text-center font-mono text-xs">Keine Verkaufsstelle gefunden. Gib deine Postleitzahl ein oder bestelle online.</div>`;
+      } else {
+        list.innerHTML = filtered.map(s => `
+          <div class="p-3.5 bg-[#FAF8F2] rounded-lg border border-hairline flex justify-between items-center">
+            <div>
+              <span class="font-medium text-modu-charcoal block text-sm">${s.name}</span>
+              <span class="text-modu-muted">${s.address}</span>
+            </div>
+            <span class="px-2.5 py-1 bg-green-50 text-modu-emerald font-mono font-medium rounded-full text-[10px]">AN LAGER</span>
+          </div>
+        `).join('');
+      }
+    }
+
+    // Initialize Real Three.js 3D WebGL Engine & Exploded Anatomy Stage on Load
+    window.addEventListener('DOMContentLoaded', () => {
+      initThreeJsPuck();
+      drawGranules(currentProduct);
+      setDecomposition(100);
+    });
+
+    // Immediate fallback initialization if already loaded
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      setTimeout(() => {
+        initThreeJsPuck();
+        drawGranules(currentProduct);
+        setDecomposition(100);
+      }, 50);
+    }
+  </script>
+
+</body>
+</html>
